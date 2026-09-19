@@ -239,19 +239,29 @@ a{
 .reveal-group.is-visible > *:nth-child(6) { transition-delay: 0.55s; opacity: 1; transform: translateY(0); }
 
 /* =========================================
-   Navigation
+   Navigation & Sticky Header
    ========================================= */
 
-.nav{
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 32px 0;
+  padding: 20px 0;
   border-bottom: 1px solid var(--line);
-  position: relative;
+  background: rgba(248, 246, 241, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: background-color 0.3s ease, border-color 0.3s ease, padding 0.2s ease;
 }
 
-.nav .name{
+[data-theme="dark"] .nav {
+  background: rgba(18, 18, 18, 0.94);
+}
+
+.nav .name {
   font-family: 'Fraunces', serif;
   font-size: 20px;
   font-weight: 600;
@@ -261,7 +271,7 @@ a{
   text-decoration: none;
 }
 
-.nav .name:hover{
+.nav .name:hover {
   opacity: 0.75;
   transform: translateX(2px);
 }
@@ -269,10 +279,10 @@ a{
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 24px;
 }
 
-.nav .links{
+.nav .links {
   display: flex;
   align-items: center;
   gap: 28px;
@@ -280,15 +290,20 @@ a{
   color: var(--muted);
 }
 
-.nav .links a{
+.nav-accordion {
+  position: relative;
+}
+
+.desktop-work-link {
   position: relative;
   transition: color 0.2s ease;
   padding: 4px 0;
   color: var(--muted);
   text-decoration: none;
+  font-size: 14px;
 }
 
-.nav .links a::after {
+.desktop-work-link::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -299,11 +314,47 @@ a{
   transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.nav .links a:hover{
+.desktop-work-link:hover {
   color: var(--ink);
 }
 
-.nav .links a:hover::after {
+.desktop-work-link:hover::after {
+  width: 100%;
+}
+
+.accordion-toggle-btn {
+  display: none;
+}
+
+.nav-accordion-content {
+  display: none;
+}
+
+.nav-link-item {
+  position: relative;
+  transition: color 0.2s ease;
+  padding: 4px 0;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.nav-link-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background-color: var(--ink);
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link-item:hover {
+  color: var(--ink);
+}
+
+.nav-link-item:hover::after {
   width: 100%;
 }
 
@@ -350,7 +401,7 @@ a{
   display: none;
 }
 
-/* Hamburger Button */
+/* Mobile Hamburger Button */
 .mobile-menu-btn {
   display: none;
   background: transparent;
@@ -395,43 +446,112 @@ a{
   transform: translateY(-6px) rotate(-45deg);
 }
 
-/* Responsive Mobile Navigation */
+/* =========================================
+   Sticky Case Study Subnav (Back to Work)
+   ========================================= */
+
+.case-subnav {
+  position: sticky;
+  top: 65px;
+  z-index: 990;
+  padding: 10px 0;
+  background: rgba(248, 246, 241, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+[data-theme="dark"] .case-subnav {
+  background: rgba(18, 18, 18, 0.94);
+}
+
+.case-subnav .back-link {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  padding: 5px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 0;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.case-subnav .back-link:hover {
+  background: var(--paper);
+  border-color: var(--ink);
+  transform: translateX(-3px);
+}
+
+.case-subnav .back-link svg {
+  stroke: currentColor;
+  transition: transform 0.2s ease;
+}
+
+.case-subnav .back-link:hover svg {
+  transform: translateX(-2px);
+}
+
+/* =========================================
+   Mobile Navigation Overlay & Work Accordion
+   ========================================= */
+
 @media (max-width: 768px) {
   .nav {
-    padding: 20px 0;
+    padding: 14px 0;
   }
 
   .nav-right {
-    gap: 10px;
+    gap: 12px;
   }
 
   .mobile-menu-btn {
     display: flex;
   }
 
+  .case-subnav {
+    top: 59px;
+    padding: 8px 0;
+    margin-bottom: 20px;
+  }
+
   .nav .links {
-    position: absolute;
-    top: calc(100% + 8px);
-    right: 0;
+    position: fixed;
+    top: 59px;
     left: 0;
-    background: var(--paper);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-lg, 16px);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
-    padding: 16px 20px;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: calc(100vh - 59px);
+    background: var(--bg);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 20px 24px 60px;
+    display: none;
     flex-direction: column;
     align-items: stretch;
-    gap: 6px;
-    display: none;
-    z-index: 1000;
+    gap: 0;
+    z-index: 9999;
+    border: none;
+    box-shadow: none;
     opacity: 0;
     transform: translateY(-8px);
-    transition: opacity 0.25s ease, transform 0.25s ease;
+    transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   [data-theme="dark"] .nav .links {
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
-    border-color: rgba(255, 255, 255, 0.12);
+    background: var(--bg);
+    border: none;
+    box-shadow: none;
   }
 
   .nav .links.is-open {
@@ -440,34 +560,133 @@ a{
     transform: translateY(0);
   }
 
-  .nav .links a {
-    font-family: 'Fraunces', serif;
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--ink);
-    padding: 12px 14px;
-    border-radius: 8px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  .desktop-work-link {
+    display: none;
+  }
+
+  /* Accordion Item */
+  .nav-accordion {
+    border-bottom: 1px solid var(--line);
+    padding: 4px 0;
+  }
+
+  .accordion-toggle-btn {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    transition: background-color 0.2s ease, color 0.2s ease;
-  }
-
-  [data-theme="dark"] .nav .links a {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  }
-
-  .nav .links a:last-child {
-    border-bottom: none;
-  }
-
-  .nav .links a:hover {
-    background-color: var(--card-bg);
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 14px 0;
+    cursor: pointer;
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 500;
     color: var(--ink);
+    text-align: left;
   }
 
-  .nav .links a::after {
+  .accordion-toggle-btn .chevron-icon {
+    width: 22px;
+    height: 22px;
+    stroke: var(--muted);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.2s ease;
+  }
+
+  .nav-accordion.is-expanded .accordion-toggle-btn .chevron-icon {
+    transform: rotate(180deg);
+    stroke: var(--ink);
+  }
+
+  /* Nested Case Study Submenu */
+  .nav-accordion-content {
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    padding: 6px 0 16px 12px;
+    border-left: 2px solid var(--line);
+    margin-left: 6px;
+  }
+
+  .nav-accordion.is-expanded .nav-accordion-content {
+    display: flex;
+    animation: accordionFade 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes accordionFade {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .sublink-item {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    text-decoration: none;
+  }
+
+  .sublink-item:active {
+    background: var(--paper);
+    transform: translateX(4px);
+  }
+
+  .sublink-title {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.25;
+  }
+
+  .sublink-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+  }
+
+  .sublink-all {
+    border-style: dashed;
+    background: transparent;
+    padding: 10px 14px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .sublink-all .sublink-title {
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  /* Standard Nav Links */
+  .nav-link-item {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--ink);
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    display: block;
+    text-decoration: none;
+  }
+
+  .nav-link-item:hover, .nav-link-item:active {
+    color: var(--accent);
+  }
+
+  .nav-link-item::after {
     display: none;
   }
 }
