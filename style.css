@@ -454,11 +454,11 @@ a{
   position: sticky;
   top: 65px;
   z-index: 990;
-  padding: 10px 0;
-  background: rgba(248, 246, 241, 0.94);
+  padding: 12px 0 10px 0;
+  background: rgba(250, 248, 243, 0.94);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   margin-bottom: 28px;
   display: flex;
   align-items: center;
@@ -466,30 +466,32 @@ a{
 }
 
 [data-theme="dark"] .case-subnav {
-  background: rgba(18, 18, 18, 0.94);
+  background: rgba(14, 17, 23, 0.94);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .case-subnav .back-link {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 13px;
   font-weight: 500;
-  color: var(--ink);
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 6px;
-  padding: 5px 12px;
+  color: var(--muted);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
   margin-bottom: 0;
   text-decoration: none;
-  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .case-subnav .back-link:hover {
-  background: var(--paper);
-  border-color: var(--ink);
-  transform: translateX(-3px);
+  color: var(--ink);
+  background: transparent;
+  border: none;
+  transform: translateX(-4px);
 }
 
 .case-subnav .back-link svg {
@@ -501,13 +503,20 @@ a{
   transform: translateX(-2px);
 }
 
+/* Blur page content behind when mobile menu is active */
+body.menu-open > .wrap > *:not(.nav) {
+  filter: blur(16px);
+  transition: filter 0.25s ease;
+  pointer-events: none;
+}
+
 /* =========================================
    Mobile Navigation Overlay & Work Accordion
    ========================================= */
 
 @media (max-width: 768px) {
   .nav {
-    padding: 14px 0;
+    padding: 16px 0;
   }
 
   .nav-right {
@@ -519,23 +528,30 @@ a{
   }
 
   .case-subnav {
-    top: 59px;
-    padding: 8px 0;
+    top: 61px;
+    padding: 10px 0;
     margin-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  [data-theme="dark"] .case-subnav {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   }
 
   .nav .links {
     position: fixed;
-    top: 59px;
+    top: 61px;
     left: 0;
     right: 0;
     bottom: 0;
     width: 100vw;
-    height: calc(100vh - 59px);
-    background: var(--bg);
+    height: calc(100vh - 61px);
+    background: rgba(250, 248, 243, 0.98);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    padding: 20px 24px 60px;
+    padding: 24px 24px 60px;
     display: none;
     flex-direction: column;
     align-items: stretch;
@@ -549,7 +565,7 @@ a{
   }
 
   [data-theme="dark"] .nav .links {
-    background: var(--bg);
+    background: rgba(14, 17, 23, 0.98);
     border: none;
     box-shadow: none;
   }

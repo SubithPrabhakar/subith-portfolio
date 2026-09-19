@@ -43,6 +43,7 @@
         menuBtn.classList.remove('is-active');
         menuBtn.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
+        document.body.classList.remove('menu-open');
       }
     }
 
@@ -53,6 +54,7 @@
         menuBtn.classList.toggle('is-active', isOpen);
         menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         document.body.style.overflow = isOpen ? 'hidden' : '';
+        document.body.classList.toggle('menu-open', isOpen);
       });
 
       // Accordion toggle for Work on mobile
