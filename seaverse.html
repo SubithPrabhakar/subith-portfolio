@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seaverse LMS — Subith M</title>
+<link rel="stylesheet" href="style.css">
+<script src="theme.js"></script>
+</head>
+<body>
+
+<!-- Interactive Top Reading Progress Bar -->
+<div id="progress-bar"></div>
+
+<div class="wrap">
+  <nav class="nav animate-fade-up">
+    <a href="index.html" class="name">Subith M</a>
+    <div class="links">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#about">About</a>
+      <a href="SubithCV.pdf" download="Subith_M_Resume.pdf" target="_blank">Resume</a>
+      <a href="index.html#contact">Contact</a>
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg class="sun-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Case Study Header -->
+  <section class="cs-hero animate-fade-up delay-1">
+    <a href="index.html" class="back-link">← Back to work</a>
+    <div class="meta cs-meta">
+      <span class="cs-meta-tag">EdTech &amp; Maritime LMS</span>
+      <span class="dot">·</span>
+      <span>Seaverse</span>
+      <span class="dot">·</span>
+      <span>2024</span>
+      <span class="dot">·</span>
+      <span>Lead Product Designer</span>
+    </div>
+    <h1>Designing a dual-platform maritime LMS for global fleet operations &amp; crew compliance</h1>
+  </section>
+
+  <!-- Multi-Screen Hero Showcase with Minor Floating Animations -->
+  <div class="cs-hero-showcase animate-fade-up delay-2">
+    <div class="showcase-stage">
+      <!-- Base Layer Screen: Course Catalog Management -->
+      <div class="showcase-screen-base">
+        <div class="browser-header">
+          <div class="browser-dots">
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+          </div>
+          <span class="browser-title-mini">Seaverse LMS · Course Catalog &amp; Certification Management</span>
+        </div>
+        <div class="browser-content">
+          <img src="images/seaverse-admin-courses.png" alt="Seaverse LMS Course Catalog showing maritime navigation courses and certifications">
+        </div>
+      </div>
+
+      <!-- Floating Foreground Screen: Fleet Crew & User Management Table -->
+      <div class="showcase-screen-float">
+        <div class="browser-header" style="background: #EAE6DC;">
+          <div class="browser-dots">
+            <span class="browser-dot" style="background:#C4BFB2;"></span>
+            <span class="browser-dot" style="background:#C4BFB2;"></span>
+            <span class="browser-dot" style="background:#C4BFB2;"></span>
+          </div>
+          <span class="browser-title-mini" style="color: #1C2B45; font-weight: 500;">Fleet Crew Management · Vessel Assignments</span>
+        </div>
+        <div class="browser-content">
+          <img src="images/seaverse-admin-users.png" alt="Seaverse User Management table showing vessel assignments and maritime ranks">
+        </div>
+      </div>
+
+      <!-- Live Production Status Pill -->
+      <div class="showcase-screen-pill">
+        <span class="live-dot"></span>
+        <span>ENTERPRISE LMS · FLEET TRAINING &amp; COMPLIANCE</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Context Section -->
+  <section class="prose tight reveal" style="padding-top:0;">
+    <h2>Context</h2>
+    <p style="margin-top:14px;">Maritime shipping operations demand strict, continuous regulatory compliance (IMO, STCW, and SIRE 2.0 safety vetting). Seafaring crews—comprising Masters, Chief Engineers, Navigation Officers, and Cadets from across the globe—operate on extended sea voyages under low-bandwidth satellite connectivity, while shore-based technical superintendents and fleet managers oversee compliance from headquarters.</p>
+    <p>Seaverse was engineered as an enterprise-grade maritime learning and crew compliance management ecosystem. The platform provides centralized curriculum authoring, dynamic learning plan rule engines, multi-lingual subtitle localization, fleet-wide crew provisioning, and audit-ready SIRE 2.0 vetting reporting.</p>
+  </section>
+
+  <!-- Problem Section -->
+  <section class="prose tight reveal">
+    <h2>The Challenge</h2>
+    <p style="margin-top:14px;">Traditional maritime training relied on fragmented physical binders, disparate USB drives, and rigid SCORM packages that could not adapt when safety regulations or vessel equipment changed. Fleet operators needed a unified system capable of managing multi-lingual instructional media, tracking compliance across hundreds of ships, and providing seamless role duality for senior shipboard officers who manage training while completing their own certifications.</p>
+  </section>
+
+  <!-- Pull Quote -->
+  <section class="tight reveal">
+    <div class="pull">
+      <p>Maritime training isn't just standard corporate HR learning—it's a critical safety barrier. If a navigation certification expires at sea, entire vessels can be detained at port.</p>
+    </div>
+  </section>
+
+  <!-- Design Principles Section (Principles that guided decisions) -->
+  <section class="cs-principles-section reveal">
+    <span class="principles-eyebrow">DESIGN PRINCIPLES</span>
+    <h2 class="principles-title">Principles that guided decisions</h2>
+
+    <div class="principles-list">
+      <div class="principle-row">
+        <div class="principle-num">01</div>
+        <div class="principle-body">
+          <div class="principle-heading">Modular asset reusability</div>
+          <p class="principle-desc">Separate raw media assets (videos, quizzes, documents) from structured courses so safety updates propagate across the entire fleet instantly.</p>
+        </div>
+      </div>
+
+      <div class="principle-row">
+        <div class="principle-num">02</div>
+        <div class="principle-body">
+          <div class="principle-heading">Zero-friction multi-lingual localization</div>
+          <p class="principle-desc">Treat subtitles and language tracks as first-class modular layers, enabling global multi-national crews to learn in their native languages without duplicating curriculum trees.</p>
+        </div>
+      </div>
+
+      <div class="principle-row">
+        <div class="principle-num">03</div>
+        <div class="principle-body">
+          <div class="principle-heading">Vessel-centric crew hierarchy</div>
+          <p class="principle-desc">Anchor user profiles directly to vessel assignments (e.g. Advaita), maritime ranks, and shore status, with instant duality switching between Admin oversight and Learner progression.</p>
+        </div>
+      </div>
+
+      <div class="principle-row">
+        <div class="principle-num">04</div>
+        <div class="principle-body">
+          <div class="principle-heading">Make compliance audit-ready at a glance</div>
+          <p class="principle-desc">Structure tables, status indicators, and certification badges for rapid scanning during port inspections and SIRE 2.0 vetting reviews.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enterprise Admin & Management Panel -->
+  <section class="reveal" style="margin-top: 24px;">
+    <div class="meta" style="margin-bottom: 12px;">
+      <span class="cs-meta-tag" style="background: var(--navy-tint); color: var(--navy);">ENTERPRISE LMS ECOSYSTEM</span>
+      <span class="dot">·</span>
+      <span>FLEET OPERATIONS &amp; COMPLIANCE</span>
+    </div>
+    <h2 style="font-size: 34px; margin-bottom: 12px;">The Enterprise Admin Management Panel</h2>
+    <p class="prose muted">The administrative command center provides fleet superintendents and training managers complete control over learning plans, compliance reporting, content localization, and crew provisioning.</p>
+
+    <!-- SECTION 1: Automated Learning Plans & Dynamic Condition Engine -->
+    <div class="decision reveal" style="margin-top: 48px;">
+      <span class="split-tag">WORKFLOW 01</span>
+      <h3>1. Automated Learning Plans &amp; Dynamic Assignment Rule Engine</h3>
+      <p>Maritime regulations require specific training modules depending on a seafarer's rank, vessel class, and deployment state (onboard vs. onshore). I designed an automated Learning Plan engine that replaces manual enrollment spreadsheets with a dynamic rule builder. Administrators define logic triggers (e.g., <em>"Assign SIRE 2.0 Hardware Inspection course when Current Status is On-Board"</em>), which automatically enrolls eligible crew members and synchronizes progress in real time.</p>
+    </div>
+
+    <!-- Main Contained Learning Plan Master Screen -->
+    <div class="screen-frame-browser screen-block contained reveal">
+      <div class="browser-header">
+        <div class="browser-dots">
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+        </div>
+        <span class="browser-title-mini">Learning Plan Master Directory · Active, Inactive, Draft Plans with Completion Tracking</span>
+      </div>
+      <div class="browser-content">
+        <img src="images/seaverse-learning-plan-list.png" alt="Seaverse Learning Plan Master list showing active plans, automatic enrollment tags, and progress bars">
+      </div>
+      <div class="screen-caption" style="padding: 12px 16px; background: #FAF9F6; margin: 0; border-top: 1px solid var(--line);">
+        Learning Plan Directory — Displays assignment type badges (Automatic, Everyone, Manual), author metadata, last-modified dates, and aggregate completion percentages.
+      </div>
+    </div>
+
+    <!-- Compact Dual Sub-Screens for Learning Plan Workflow -->
+    <div class="screens-grid-compact reveal-group">
+      <figure class="screen-frame-browser">
+        <div class="browser-header" style="background: #F4F2EB;">
+          <div class="browser-dots">
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+          </div>
+          <span class="browser-title-mini">Rule Builder · Dynamic Status &amp; Rank Triggers</span>
+        </div>
+        <div class="browser-content">
+          <img src="images/seaverse-learning-plan-conditions.png" alt="Learning Plan Condition builder with status triggers and matching employee counts">
+        </div>
+        <figcaption style="padding: 10px 14px; background: #FAF9F6; margin: 0; border-top: 1px solid var(--line);">
+          Condition Builder — Logic engine evaluating employee criteria in real time (e.g., "815 employees currently meet this rule").
+        </figcaption>
+      </figure>
+
+      <figure class="screen-frame-browser">
+        <div class="browser-header" style="background: #F4F2EB;">
+          <div class="browser-dots">
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+          </div>
+          <span class="browser-title-mini">Plan Audit · Individual Participant Roster Progress</span>
+        </div>
+        <div class="browser-content">
+          <img src="images/seaverse-learning-plan-overview.png" alt="Learning Plan Progress Overview showing overall progress, time spent, and participant roster">
+        </div>
+        <figcaption style="padding: 10px 14px; background: #FAF9F6; margin: 0; border-top: 1px solid var(--line);">
+          Roster Audit Overview — Tracks overall progress, participants completed, total study hours (1h 10m), and individual crew statuses.
+        </figcaption>
+      </figure>
+    </div>
+
+    <!-- SECTION 2: Custom Compliance Reporting Engine (Modal-Aside Layered Layout) -->
+    <div class="decision reveal" style="margin-top: 48px;">
+      <span class="split-tag" style="background: var(--teal-tint); color: var(--teal-accent);">WORKFLOW 02</span>
+      <h3>2. Custom Compliance Reporting &amp; Audit Trail Export</h3>
+      <p>Port State Control officers and maritime vetting inspectors require instant, verifiable proof of crew training compliance. I designed a multifaceted Custom Report generator allowing superintendents to slice training data across custom date ranges, specific vessel types (Gas Carriers, Tankers, Bulk Carriers), vessel names, maritime designations, and report categories (Enrollment Reports vs. Quiz Scorecards) with direct CSV export capabilities.</p>
+    </div>
+
+    <!-- Modal-Aside Layered Composition for Custom Reports -->
+    <div class="modal-aside-composition reveal">
+      <!-- Background Screen: Generated Reports Ledger Table -->
+      <div class="modal-back-screen">
+        <div class="browser-header">
+          <div class="browser-dots">
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+          </div>
+          <span class="browser-title-mini">Custom Reports · Generated Compliance Ledger</span>
+        </div>
+        <img src="images/seaverse-custom-reports-ledger.png" alt="Seaverse Custom Reports Ledger showing historical generated reports and download triggers">
+      </div>
+
+      <!-- Foreground Floating Modal: Custom Report Filter Generator -->
+      <div class="modal-floating-card" style="width: 52%; right: 24px; bottom: 20px;">
+        <div class="browser-header" style="background: #EAE6DC;">
+          <div class="browser-dots">
+            <span class="browser-dot" style="background:#C4BFB2;"></span>
+            <span class="browser-dot" style="background:#C4BFB2;"></span>
+            <span class="browser-dot" style="background:#C4BFB2;"></span>
+          </div>
+          <span class="browser-title-mini" style="color: #1C2B45; font-weight: 600;">Generate New Custom Report</span>
+        </div>
+        <img src="images/seaverse-custom-report-modal.png" alt="Generate New Custom Report Modal with date range, vessel type, and designation filters">
+      </div>
+    </div>
+    <div class="screen-caption" style="margin-top: -36px; margin-bottom: 56px;">
+      Custom Report Generator — Multi-parameter query builder (Date ranges, course names, vessel types, designations) layered over the historical audit export ledger.
+    </div>
+
+    <!-- SECTION 3: Modular Content Library & Multi-Lingual Subtitle Pipeline -->
+    <div class="decision reveal">
+      <span class="split-tag">WORKFLOW 03</span>
+      <h3>3. Multi-Format Content Library &amp; Multi-Lingual Subtitle Management</h3>
+      <p>Maritime crews represent diverse linguistic backgrounds (Tagalog, Hindi, Mandarin, Russian, Bahasa, English). Rather than duplicating full courses per language, the platform decouples video assets from their subtitle tracks. Administrators upload high-definition instructional videos once and manage synchronized SRT subtitle files across multiple languages with granular upload and removal controls.</p>
+    </div>
+
+    <div class="screens-grid-compact reveal-group">
+      <figure class="screen-frame-browser">
+        <div class="browser-header" style="background: #F4F2EB;">
+          <div class="browser-dots">
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+          </div>
+          <span class="browser-title-mini">Content Library · Modular Asset Directory</span>
+        </div>
+        <div class="browser-content">
+          <img src="images/seaverse-admin-content-library.png" alt="Seaverse Content Library showing published modular assets, formats, versions, and course usage">
+        </div>
+        <figcaption style="padding: 10px 14px; background: #FAF9F6; margin: 0; border-top: 1px solid var(--line);">
+          Content Library — Modular asset directory with format icons (video, PDF, quiz, PPT), duration tags, version indicators, and cross-course usage counters.
+        </figcaption>
+      </figure>
+
+      <figure class="screen-frame-browser">
+        <div class="browser-header" style="background: #F4F2EB;">
+          <div class="browser-dots">
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+          </div>
+          <span class="browser-title-mini">Add Content · Multi-Lingual SRT Subtitle Pipeline</span>
+        </div>
+        <div class="browser-content">
+          <img src="images/seaverse-admin-add-content.png" alt="Add New Content form with language tabs and multi-language SRT subtitle file list">
+        </div>
+        <figcaption style="padding: 10px 14px; background: #FAF9F6; margin: 0; border-top: 1px solid var(--line);">
+          Localization Pipeline — Language tabs (English, Mandarin, Tagalog), video media upload, and multi-lingual subtitle file list with independent controls.
+        </figcaption>
+      </figure>
+    </div>
+
+    <!-- SECTION 4: Vessel-Aware Crew Directory & Instant Role Duality -->
+    <div class="decision reveal">
+      <span class="split-tag" style="background: var(--brass-tint); color: var(--brass);">WORKFLOW 04</span>
+      <h3>4. Vessel-Aware Crew Directory &amp; Instant Role Duality Switcher</h3>
+      <p>Maritime crew management requires tracking officers across active vessel assignments and onshore leaves. I designed a dense, scannable data grid with rapid inline filtering by maritime designation (Master, Second Engineer, Deck Cadet, Engine Cadet), vessel assignment (e.g. Advaita - 9881639), and operational status (Assigned vs. Onshore). Additionally, senior officers can toggle between Admin oversight and Learner mode via the global profile flyout.</p>
+    </div>
+
+    <div class="screens-grid-compact reveal-group">
+      <figure class="screen-frame-browser">
+        <div class="browser-header" style="background: #F4F2EB;">
+          <div class="browser-dots">
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+          </div>
+          <span class="browser-title-mini">Crew Directory · Vessel Assignments &amp; Ranks</span>
+        </div>
+        <div class="browser-content">
+          <img src="images/seaverse-admin-users.png" alt="Seaverse User Management table showing vessel assignments and maritime ranks">
+        </div>
+        <figcaption style="padding: 10px 14px; background: #FAF9F6; margin: 0; border-top: 1px solid var(--line);">
+          Crew Directory — Dense data table with vessel mapping, maritime rank badges, role assignments, and last-seen activity timestamps.
+        </figcaption>
+      </figure>
+
+      <figure class="screen-frame-browser">
+        <div class="browser-header" style="background: #F4F2EB;">
+          <div class="browser-dots">
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+          </div>
+          <span class="browser-title-mini">Role Duality · Admin to Learner Instant Switcher</span>
+        </div>
+        <div class="browser-content">
+          <img src="images/seaverse-admin-dashboard.png" alt="Seaverse Admin Dashboard with profile switcher flyout showing Admin vs Learner toggle">
+        </div>
+        <figcaption style="padding: 10px 14px; background: #FAF9F6; margin: 0; border-top: 1px solid var(--line);">
+          Role Duality Switcher — Allows Chief Engineers and Captains to transition between vessel training oversight and personal certification study.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Outcome Section -->
+  <section class="reveal">
+    <h2 style="margin-bottom:4px;">Key Outcomes &amp; Impact</h2>
+    <div class="outcomes reveal-group" style="margin-top:24px;">
+      <div class="outcome-stat">
+        <div class="num">100%</div>
+        <div class="label">Digital compliance audit readiness for SIRE 2.0 and STCW vetting inspections</div>
+      </div>
+      <div class="outcome-stat">
+        <div class="num">~45%</div>
+        <div class="label">Reduction in localized course authoring time via modular SRT subtitle pipeline</div>
+      </div>
+      <div class="outcome-stat">
+        <div class="num">180+</div>
+        <div class="label">Vessels supported across international commercial shipping fleets</div>
+      </div>
+    </div>
+    <p class="outcome-note">Evaluated based on customer deployment feedback and fleet administration operational time studies.</p>
+  </section>
+
+  <!-- Bottom Case Study Navigation -->
+  <div class="cs-nav-bottom reveal">
+    <a href="index.html#work">← Back to all selected work</a>
+    <a href="itrack.html">View Next: iTrack SLA Governance →</a>
+  </div>
+
+  <footer id="contact" class="reveal">
+    <div class="row">
+      <div>© 2026 Subith M</div>
+      <div style="display:flex;gap:24px;">
+        <a href="mailto:text2subith@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/subith-prabhakar-20b82a1b3" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="SubithCV.pdf" download="Subith_M_Resume.pdf" target="_blank">Resume</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  // Top Reading Progress Bar Calculation
+  window.addEventListener('scroll', () => {
+    const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    const progressBar = document.getElementById('progress-bar');
+    if (progressBar) {
+      progressBar.style.width = scrolled + '%';
+    }
+  });
+
+  // Scroll reveal with IntersectionObserver
+  document.addEventListener('DOMContentLoaded', () => {
+    const reveals = document.querySelectorAll('.reveal, .reveal-group');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+      reveals.forEach((el) => observer.observe(el));
+    } else {
+      reveals.forEach((el) => el.classList.add('is-visible'));
+    }
+  });
+</script>
+
+<script src="cursor.js"></script>
+</body>
+</html>

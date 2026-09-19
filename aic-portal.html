@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIC Senior Engagement &amp; Volunteer Portals — Subith M</title>
+<link rel="stylesheet" href="style.css">
+<script src="theme.js"></script>
+<script>
+  try {
+    if (sessionStorage.getItem('portfolio_session_unlocked_aic') !== 'true') {
+      document.documentElement.classList.add('is-locked');
+    }
+  } catch(e) {
+    document.documentElement.classList.add('is-locked');
+  }
+</script>
+<script src="protect.js" defer></script>
+</head>
+<body>
+
+<!-- Interactive Top Reading Progress Bar -->
+<div id="progress-bar"></div>
+
+<div class="wrap">
+  <nav class="nav animate-fade-up">
+    <a href="index.html" class="name">Subith M</a>
+    <div class="links">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#about">About</a>
+      <a href="SubithCV.pdf" download="Subith_M_Resume.pdf" target="_blank">Resume</a>
+      <a href="index.html#contact">Contact</a>
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg class="sun-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <section class="cs-hero animate-fade-up delay-1">
+    <a href="index.html" class="back-link">← Back to work</a>
+    <div class="meta cs-meta">
+      <span class="cs-meta-tag">GovTech &amp; Healthcare</span>
+      <span class="dot">·</span>
+      <span>Agency for Integrated Care (AIC)</span>
+      <span class="dot">·</span>
+      <span>2026</span>
+      <span class="dot">·</span>
+      <span>Lead Product Designer</span>
+    </div>
+    <h1>Designing the digital backbone for Singapore's national senior outreach &amp; volunteer operations</h1>
+  </section>
+
+  <!-- Hero Dual-Mockup Shot: Web Operations Dashboard + Framed Tablet Field App -->
+  <div class="hero-shot animate-fade-up delay-2" style="padding: 28px 24px;">
+    <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 24px; align-items: center;">
+      <!-- Web Operations Preview -->
+      <div style="background: #FFFFFF; border-radius: 6px; overflow: hidden; border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 12px 30px rgba(0,0,0,0.06);">
+        <div class="browser-header">
+          <div class="browser-dots">
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+          </div>
+          <span class="browser-title-mini">AIC Volunteer Portal · Operations Dashboard</span>
+        </div>
+        <img src="images/aic-web-dashboard.png" alt="AIC Volunteer Web Operations Dashboard" style="width: 100%; display: block;">
+      </div>
+
+      <!-- Compact Framed Tablet Field App Preview -->
+      <div class="tablet-device-frame" style="max-width: 340px; margin: 0 auto; box-shadow: 0 16px 36px rgba(0,0,0,0.1);">
+        <div class="tablet-header-mini">
+          <span>Senior Engagement (Tablet)</span>
+          <span>14:24 📶</span>
+        </div>
+        <img src="images/aic-engagement-start.png" alt="AIC Senior Engagement Tablet Assessment" style="width: 100%; display: block;">
+      </div>
+    </div>
+    <div class="screen-caption" style="margin-top: 16px; text-align: center; justify-content: center;">
+      The dual-ecosystem: Centralized web management portal (left) and offline-first tablet field app (right)
+    </div>
+  </div>
+
+  <section class="prose tight reveal" style="padding-top:0;">
+    <h2>Context</h2>
+    <p style="margin-top:14px;">The <strong>Agency for Integrated Care (AIC)</strong> coordinates care services across Singapore, ensuring elderly citizens receive timely medical, social, and financial assistance through the Silver Generation Office (SGO). Grassroots volunteer befrienders conduct door-to-door home visits across Singapore's public housing (HDB) estates to check on vulnerable seniors, administer cognitive health assessments, and connect them with national care schemes.</p>
+    <p>I was the sole product designer across the entire digital ecosystem, architecting two complementary platforms:</p>
+    <ol style="color: var(--ink); margin-top: 12px; padding-left: 20px; line-height: 1.75;">
+      <li><strong>Senior Engagement Portal (Tablet App)</strong>: An ergonomic, offline-first digital assessment tool tailored for volunteer pairs conducting doorstep surveys.</li>
+      <li><strong>Volunteer Portal (Web Operations Platform)</strong>: A comprehensive portal for volunteer onboarding, milestone tracking, honorarium (OPA) disbursement, training compliance, and division governance.</li>
+    </ol>
+  </section>
+
+  <section class="prose tight reveal">
+    <h2>The Problem</h2>
+    <p style="margin-top:14px;">Previously, the outreach process was burdened by fragmented, paper-heavy workflows. In the field, volunteers juggled clipboards and pen-and-paper questionnaires in narrow, dim HDB corridors while trying to build rapport with elderly residents in multiple dialects. Back in the office, data transcription created multi-week backlogs, causing delays in emergency healthcare interventions. Meanwhile, volunteers had no visibility into their service hours, honorarium reimbursements, or award milestones.</p>
+  </section>
+
+  <section class="tight reveal">
+    <div class="pull">
+      <p>In community healthcare, software should never get in the way of human empathy. The tablet had to be fast enough to use while standing at a doorway, while the web portal had to make volunteers feel valued, recognized, and supported.</p>
+    </div>
+  </section>
+
+  <!-- Part 1: Senior Engagement Tablet App (Presented with Side-by-Side Splits & Compact Tablet Frames) -->
+  <section class="reveal">
+    <div style="border-top: 2px solid var(--navy); padding-top: 28px; margin-bottom: 24px;">
+      <span class="cs-meta-tag" style="background: #FBECE8; color: #E05638; font-weight: 600;">PART 1 · FIELD MOBILITY</span>
+      <h2 style="margin-top: 10px; font-size: 30px;">Senior Engagement Portal (Tablet App)</h2>
+    </div>
+
+    <!-- Feature Split 1: Dedicated Volunteer Pairing -->
+    <div class="cs-feature-split reveal">
+      <div class="split-content">
+        <span class="split-tag">COOPERATIVE WORKFLOW</span>
+        <h3>1. "Communicator ⇄ Recorder" Dynamic &amp; 1-Tap Role Swap</h3>
+        <p>Outreach visits are always conducted in pairs for safety and effectiveness. One volunteer leads the conversation in the senior's native dialect ("Communicator"), while the other logs responses ("Recorder").</p>
+        <p>I designed a persistent top app bar displaying both active volunteers with an instant 1-tap role-swap trigger, allowing volunteers to switch roles seamlessly when encountering unexpected dialect barriers.</p>
+      </div>
+      <div class="split-visual">
+        <div class="tablet-device-frame">
+          <img src="images/aic-senior-selection.png" alt="Senior Selection Screen with Volunteer Pairings and Dialect Badges">
+        </div>
+        <div class="screen-caption">Volunteer pair header with role indicator and dialect-mapped senior cards</div>
+      </div>
+    </div>
+
+    <!-- Feature Split 2: Split-Screen Assessment (Reversed for visual rhythm) -->
+    <div class="cs-feature-split reverse reveal">
+      <div class="split-content">
+        <span class="split-tag">ERGONOMICS &amp; COGNITION</span>
+        <h3>2. Ergonomic Split-Screen Assessment with Tactile Cards</h3>
+        <p>Doorstep assessments take place standing up, often in narrow HDB corridors. I organized the clinical assessment into a 2-column tablet layout: a category progress rail on the left (Health, Psychosocial, ADLs, Follow-Up Actions) and massive, high-contrast touch cards on the right.</p>
+        <p>Large tap targets prevent mis-taps and reduce cognitive friction for volunteers across diverse age groups and digital literacy levels.</p>
+      </div>
+      <div class="split-visual">
+        <div class="tablet-device-frame">
+          <img src="images/aic-assessment-questions.png" alt="Tablet Split-Screen Assessment Interface with Large Touch Targets">
+        </div>
+        <div class="screen-caption">Split-screen assessment — 9 categories on the left rail with cognitive recall checks (B2/B3)</div>
+      </div>
+    </div>
+
+    <!-- Paired Side-by-Side Tablet Comparisons for Consent and Dashboard Status -->
+    <div style="margin-top: 36px;">
+      <h3 style="margin-bottom: 8px;">3. Conversational Consent &amp; Actionable Session Dashboard</h3>
+      <p class="prose muted" style="margin-bottom: 24px;">Adhering to Singapore PDPA privacy laws with embedded conversational scripts, alongside real-time unreachability drop-off tracking (hospitalized, unwell, etc.) for care coordinator triage.</p>
+
+      <div class="screens-grid-tablet reveal-group">
+        <figure>
+          <div class="tablet-device-frame">
+            <img src="images/aic-consent-location.png" alt="Statutory Consent Script and Location Selector">
+          </div>
+          <figcaption class="screen-caption">Conversational consent disclosure script and one-tap outreach location grid</figcaption>
+        </figure>
+
+        <figure>
+          <div class="tablet-device-frame">
+            <img src="images/aic-dashboard-status.png" alt="Engagement Status Dashboard showing Successful, Unsuccessful, and Pending Filters">
+          </div>
+          <figcaption class="screen-caption">Dashboard status filter pills — surfacing unreachability reasons in real time</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Part 2: Volunteer Operations Web Platform (Landscape screens presented cleanly) -->
+  <section class="reveal">
+    <div style="border-top: 2px solid var(--navy); padding-top: 28px; margin-bottom: 24px;">
+      <span class="cs-meta-tag" style="background: var(--navy-tint); color: var(--navy); font-weight: 600;">PART 2 · WEB MANAGEMENT</span>
+      <h2 style="margin-top: 10px; font-size: 30px;">Volunteer Operations &amp; Recognition Portal (Web)</h2>
+    </div>
+
+    <div class="decision reveal">
+      <h3>4. Operations Dashboard &amp; Recognition Hub</h3>
+      <p>To keep grassroots volunteers engaged and motivated, the home dashboard surfaces high-level service milestones (Years of Service, Total Hours Served, Seniors Helped, and Total Honorarium Disbursed), active workshop registrations, and Silver Generation Ambassador (SGA) merit awards (Gold, Silver, Bronze).</p>
+    </div>
+    <div class="screen-block reveal">
+      <img src="images/aic-web-dashboard.png" alt="Volunteer Operations Dashboard with Hours Served, Awards, and Announcements">
+      <div class="screen-caption">Volunteer operations dashboard — tracking service hours, milestone awards, and mandatory training compliance</div>
+    </div>
+
+    <div class="decision reveal">
+      <h3>5. High-Density OPA Honorarium &amp; Engagement Audit Ledger</h3>
+      <p>Volunteers receive an Out-of-Pocket Allowance (OPA) for each completed engagement. I designed a dense, filterable ledger where volunteers and finance coordinators can audit visit records across GRC divisions (Aljunied, Bedok, Bishan, Ang Mo Kio, etc.), visit roles (Communicator, Recorder, Observer), and real-time payment processing statuses.</p>
+    </div>
+    <div class="screen-block reveal">
+      <img src="images/aic-web-engagements-opa.png" alt="Engagements and OPA Honorarium Audit Ledger">
+      <div class="screen-caption">Engagements &amp; OPA audit table — filterable by date range, visit modality, division, and payment reconciliation status</div>
+    </div>
+
+    <div class="decision reveal">
+      <h3>6. Structured Volunteer Onboarding &amp; Profile Governance</h3>
+      <p>Volunteers are matched to seniors based on language capabilities and geographical proximity. I designed a multi-step registration wizard that captures citizenship, dialect proficiency, GRC divisions, and training history, ensuring optimal volunteer placement across Singapore.</p>
+    </div>
+    <div class="screen-block reveal">
+      <img src="images/aic-web-profile.png" alt="Volunteer Profile and Division Mapping Form">
+      <div class="screen-caption">Volunteer profile &amp; divisional mapping — capturing language proficiency and geographic allocation</div>
+    </div>
+  </section>
+
+  <!-- Outcomes Section -->
+  <section class="reveal">
+    <h2 style="margin-bottom:4px;">Outcome &amp; Impact</h2>
+    <div class="outcomes reveal-group" style="margin-top:24px;">
+      <div class="outcome-stat">
+        <div class="num">100%</div>
+        <div class="label">Digital transition from paper packets across all SGO divisions</div>
+      </div>
+      <div class="outcome-stat">
+        <div class="num">0</div>
+        <div class="label">Data lost due to corridor network drops with offline-first sync</div>
+      </div>
+      <div class="outcome-stat">
+        <div class="num">&lt; 3 mins</div>
+        <div class="label">Post-visit data processing time, down from 3+ days</div>
+      </div>
+    </div>
+    <p class="outcome-note">Based on nationwide rollout and volunteer feedback across Singapore community clusters.</p>
+  </section>
+
+  <!-- Bottom Case Study Navigation -->
+  <div class="cs-nav-bottom reveal">
+    <a href="index.html#work">← Back to all selected work</a>
+    <a href="parliament.html">View Next: Singapore Parliament Travel Portal →</a>
+  </div>
+
+  <footer id="contact" class="reveal">
+    <div class="row">
+      <div>© 2026 Subith M</div>
+      <div style="display:flex;gap:24px;">
+        <a href="mailto:text2subith@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/subith-prabhakar-20b82a1b3" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="SubithCV.pdf" download="Subith_M_Resume.pdf" target="_blank">Resume</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  // Top Reading Progress Bar
+  window.addEventListener('scroll', () => {
+    const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    const progressBar = document.getElementById('progress-bar');
+    if (progressBar) {
+      progressBar.style.width = scrolled + '%';
+    }
+  });
+
+  // Scroll reveal with IntersectionObserver
+  document.addEventListener('DOMContentLoaded', () => {
+    const reveals = document.querySelectorAll('.reveal, .reveal-group');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+      reveals.forEach((el) => observer.observe(el));
+    } else {
+      reveals.forEach((el) => el.classList.add('is-visible'));
+    }
+  });
+</script>
+
+<script src="cursor.js"></script>
+</body>
+</html>

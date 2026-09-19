@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YTL PowerSeraya ETRM — Subith M</title>
+<link rel="stylesheet" href="style.css">
+<script src="theme.js"></script>
+</head>
+<body>
+
+<!-- Interactive Top Reading Progress Bar -->
+<div id="progress-bar"></div>
+
+<div class="wrap">
+  <nav class="nav animate-fade-up">
+    <a href="index.html" class="name">Subith M</a>
+    <div class="links">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#about">About</a>
+      <a href="SubithCV.pdf" download="Subith_M_Resume.pdf" target="_blank">Resume</a>
+      <a href="index.html#contact">Contact</a>
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg class="sun-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <section class="cs-hero animate-fade-up delay-1">
+    <a href="index.html" class="back-link">← Back to work</a>
+    <div class="meta cs-meta">
+      <span class="cs-meta-tag">FinTech &amp; Energy Risk</span>
+      <span class="dot">·</span>
+      <span>YTL PowerSeraya</span>
+      <span class="dot">·</span>
+      <span>2026, Phase A &amp; B</span>
+      <span class="dot">·</span>
+      <span>Lead Product Designer</span>
+    </div>
+    <h1>Designing the settlement backbone for a national power trading desk</h1>
+  </section>
+
+  <!-- Multi-Screen Hero Showcase with Minor Floating Animations -->
+  <div class="cs-hero-showcase animate-fade-up delay-2">
+    <div class="showcase-stage">
+      <!-- Base Layer Screen: Primary Activity Dashboard -->
+      <div class="showcase-screen-base">
+        <div class="browser-header">
+          <div class="browser-dots">
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+          </div>
+          <span class="browser-title-mini">ETRM · National Power Trading Desk — Live Activity &amp; Forward Curves</span>
+        </div>
+        <div class="browser-content">
+          <img src="images/screen-1.jpeg" alt="YTL PowerSeraya ETRM Activity Dashboard showing forward curves and unhedged HRQs">
+        </div>
+      </div>
+
+      <!-- Floating Foreground Screen: FX Settlement & Eligible Trades Modal -->
+      <div class="showcase-screen-float">
+        <div class="browser-header" style="background: #EAE6DC;">
+          <div class="browser-dots">
+            <span class="browser-dot" style="background:#C4BFB2;"></span>
+            <span class="browser-dot" style="background:#C4BFB2;"></span>
+            <span class="browser-dot" style="background:#C4BFB2;"></span>
+          </div>
+          <span class="browser-title-mini" style="color: #1C2B45; font-weight: 500;">FX Settlement · Eligible Trades &amp; MTM Reconciliation</span>
+        </div>
+        <div class="browser-content">
+          <img src="images/screen-4.jpeg" alt="Start New FX Period modal showing eligible trades preview">
+        </div>
+      </div>
+
+      <!-- Live Production Status Pill -->
+      <div class="showcase-screen-pill">
+        <span class="live-dot"></span>
+        <span>PRODUCTION DEPLOYED · PHASE B LIVE</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="prose tight reveal" style="padding-top:0;">
+    <h2>Context</h2>
+    <p style="margin-top:14px;">YTL PowerSeraya's ETRM (Energy Trade Risk Management) system replaced a legacy Derivatives Trade Capture tool that went live in November 2024. It serves Enterprise Sales, Derivatives Trading, Finance/Treasury, and Enterprise Risk Management teams who previously coordinated trade confirmation, settlement, and hedge accounting across disconnected spreadsheets and manual email chains.</p>
+    <p>I was the sole product designer across both phases — Phase A brought trade capture into one system; Phase B, covered here, extended it into full settlement, hedge accounting, letter generation, and GSA/CfD lifecycle management.</p>
+  </section>
+
+  <section class="prose tight reveal">
+    <h2>Problem</h2>
+    <p style="margin-top:14px;">Phase B's mandate was to bring Finance fully into the ETRM ecosystem — automating settlement reconciliation and hedge accounting that had been manual, spreadsheet-driven processes — without losing the accuracy the business depended on. Every screen had to work for finance and ops staff who weren't traders, while still handling real financial settlements running into the millions.</p>
+  </section>
+
+  <section class="tight reveal">
+    <div class="pull">
+      <p>Energy trading isn't intuitive, and this system settles real money. A misread grid isn't a UX metric — it's a wrong wire transfer.</p>
+    </div>
+  </section>
+
+  <section class="prose tight reveal">
+    <h2>Constraints</h2>
+    <p style="margin-top:14px;">Domain complexity ran deep — FO, FX, and EF settlement, hedge accounting, and CfD conversions each carry distinct financial logic. Data flowed in from three external systems (SCRM, EDH, CCnB), so there was no clean single source of truth to design around. And four departments with very different mental models — Sales, Trading, Finance, and Risk — needed the same interface to make sense to all of them.</p>
+  </section>
+
+  <!-- Design Principles Section (Principles that guided decisions) -->
+  <section class="cs-principles-section reveal">
+    <span class="principles-eyebrow">DESIGN PRINCIPLES</span>
+    <h2 class="principles-title">Principles that guided decisions</h2>
+
+    <div class="principles-list">
+      <div class="principle-row">
+        <div class="principle-num">01</div>
+        <div class="principle-body">
+          <div class="principle-heading">Reduce cognitive load</div>
+          <p class="principle-desc">Use sensible defaults so users can act quickly without second-guessing.</p>
+        </div>
+      </div>
+
+      <div class="principle-row">
+        <div class="principle-num">02</div>
+        <div class="principle-body">
+          <div class="principle-heading">Reveal complexity progressively</div>
+          <p class="principle-desc">Surface advanced options only when needed. Keep the primary path simple.</p>
+        </div>
+      </div>
+
+      <div class="principle-row">
+        <div class="principle-num">03</div>
+        <div class="principle-body">
+          <div class="principle-heading">Make the next step obvious</div>
+          <p class="principle-desc">At every touchpoint, users should know exactly what comes next.</p>
+        </div>
+      </div>
+
+      <div class="principle-row">
+        <div class="principle-num">04</div>
+        <div class="principle-body">
+          <div class="principle-heading">Design for both sides</div>
+          <p class="principle-desc">Trader and settlement officer workflows must be considered together, not in isolation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <h2 style="margin-bottom:8px;">What I decided, and why</h2>
+
+    <div class="decision reveal">
+      <h3>1. Period Versioning &amp; Audit-Locked Settlement History</h3>
+      <p>Settlement isn't a one-and-done event — trade adjustments, volume true-ups, and price corrections happen continuously. I architected a multi-version period lifecycle model (<code>V2 Active Working</code> vs <code>V1 Superseded Read Only</code>) tracking preparation states, total trades, delta changes, and locked financial snapshots required for strict SOX and audit compliance.</p>
+    </div>
+    <div class="screen-block reveal">
+      <img src="images/ytl-fo-settlement-history.png" alt="FO Settlement History table showing period versions V1 and V2, preparation state, locked snapshots, and trade delta counts">
+      <div class="screen-caption">Settlement History — tracking multi-version period baselines (V1/V2), trade delta counts, and immutable audit states</div>
+    </div>
+
+    <div class="decision reveal">
+      <h3>2. Multi-Pivot Reconciliation Grid with Live Telemetry</h3>
+      <p>Finance officers needed to reconcile complex multi-commodity positions across counterparties and cash settlement dates without getting lost in flat spreadsheet rows. I introduced top-level KPI telemetry cards (Counterparties, Settlement Dates, Confirmed vs Unconfirmed ratio, Net Settlement SGD sum) paired with a 3-way operational pivot (<em>By Counterparty</em>, <em>By Settlement Date</em>, <em>By Product</em>). Trade line status indicators (<code>CHANGED</code>, <code>DISPUTED</code>, <code>NEW</code>, <code>CONFIRMED</code>) and isolated rollups for Bilateral vs Exchange-cleared amounts give immediate visibility before drilling down into line items.</p>
+    </div>
+    <div class="screen-block reveal">
+      <img src="images/ytl-fo-settlement-by-counterparty.png" alt="FO Settlement detail pivoted by counterparty showing bilateral subtotals, confirmation states, and trade line discrepancy tags">
+      <div class="screen-caption">FO Settlement detail pivoted by Counterparty — surfacing bilateral vs exchange subtotals, confirmation states, and trade line discrepancy tags (CHANGED / DISPUTED)</div>
+    </div>
+    <div class="screen-block reveal">
+      <img src="images/ytl-fo-settlement-by-date.png" alt="FO Settlement detail pivoted by settlement date showing daily cash-flow rollups and trade additions">
+      <div class="screen-caption">FO Settlement detail pivoted by Settlement Date — surfacing daily cash-flow rollups, new trade additions, and net settlement summaries</div>
+    </div>
+
+    <div class="decision reveal">
+      <h3>3. Pre-Settlement Counterparty Agreement &amp; Email Automation</h3>
+      <p>Before binding settlement letters are finalized, finance officers dispatch provisional statements to counterparties to secure mutual agreement. I designed an agreement tracker and side-by-side automated email preview module. It pairs counterparty response states (<code>AGREED</code>, <code>NOT APPLICABLE</code>) with instant WYSIWYG email drafting and dynamic Excel snapshot attachments (<code>FO_Settlement_Aug2026_BOA_v2.xlsx</code>), drastically shortening the monthly reconciliation cycle.</p>
+    </div>
+    <div class="screen-block reveal">
+      <img src="images/ytl-fo-confirmation-emails.png" alt="Counterparty confirmation emails view showing agreement tracker, WYSIWYG email body, and dynamic version-locked Excel snapshot attachments">
+      <div class="screen-caption">Counterparty Confirmation Emails — automated agreement tracker, custom WYSIWYG email body, and dynamic version-locked Excel snapshot attachments</div>
+    </div>
+
+    <div class="decision reveal">
+      <h3>4. Self-Serve Letter Template Designer with Live Preview</h3>
+      <p>Settlement letters are legally significant documents sent directly to counterparties — previously, any change meant an engineering ticket. I designed a component-based template builder where Finance assembles letters from reusable blocks (salutation, routing, debit authorization, signatories) and sees the exact letter render update in real time, with full version history for audit purposes.</p>
+    </div>
+    <div class="screen-block reveal">
+      <img src="images/screen-3.jpeg" alt="Letter template designer with component blocks on the left and a live letter preview on the right">
+      <div class="screen-caption">Template designer — drag-orderable components on the left, live preview on the right, merge fields highlighted</div>
+    </div>
+
+    <div class="decision reveal">
+      <h3>5. Status-Driven Visual Language for Audit-Heavy Workflows</h3>
+      <p>Across settlement periods, letter templates, and hedge requests, users needed to know at a glance what state something was in without reading every row. I standardized a small set of status badges (Active, Suspended, Draft, Retired, Submitted, Approved, Novated, Changed, Disputed) used consistently across every module, so status recognition became a pattern rather than something to re-learn per screen.</p>
+    </div>
+  </section>
+
+  <section class="ytl-system-section tight reveal">
+    <div class="ytl-system-header">
+      <div class="ytl-system-eyebrow">
+        <span class="pulse-dot"></span>
+        <span>ETRM ENTERPRISE ARCHITECTURE · 6 SUB-SYSTEMS</span>
+      </div>
+      <h2 class="ytl-system-title">More of the system</h2>
+      <p class="ytl-system-subtitle">
+        Deep dive into specialized sub-modules engineered for automated settlement reconciliation, SOX-compliant legal document authoring, and high-scale hedge risk trading.
+      </p>
+    </div>
+
+    <div class="ytl-system-grid reveal-group" id="ytl-system-grid">
+      <!-- Card 1: Start New FX Period -->
+      <div class="ytl-system-card" data-category="settlements" data-index="0">
+        <div class="ytl-card-browser-bar">
+          <div class="ytl-browser-left">
+            <div class="ytl-browser-dots">
+              <span class="ytl-browser-dot"></span>
+              <span class="ytl-browser-dot"></span>
+              <span class="ytl-browser-dot"></span>
+            </div>
+            <span class="ytl-card-mod-tag">MOD-01</span>
+            <span class="ytl-card-title-mini">Start New FX Period · Preparation &amp; Eligible Trades</span>
+          </div>
+          <button class="ytl-card-zoom-btn" title="Inspect screen in high resolution" aria-label="Inspect screen">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+          </button>
+        </div>
+        <div class="ytl-card-media">
+          <img src="images/screen-4.jpeg" alt="Start New FX Period modal showing preparation baseline and eligible trades preview" loading="lazy">
+          <div class="ytl-card-overlay">
+            <span class="ytl-zoom-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+              Quick Inspect
+            </span>
+          </div>
+        </div>
+        <div class="ytl-card-body">
+          <div class="ytl-card-meta">
+            <span class="ytl-category-badge">FX &amp; Settlements</span>
+            <span class="ytl-status-badge"><span class="badge-dot"></span> Pre-Commit Guard</span>
+          </div>
+          <h3 class="ytl-card-heading">Start New FX Settlement Period</h3>
+          <p class="ytl-card-desc">Pre-commit verification wizard preventing double-settlement by querying outstanding open positions against SCRM counterparty balances before locking the accounting period.</p>
+          <div class="ytl-card-chips">
+            <span class="ytl-chip">Pre-Commit Verification</span>
+            <span class="ytl-chip">SCRM Feeds</span>
+            <span class="ytl-chip">Trade Validation</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Outstanding Trades -->
+      <div class="ytl-system-card" data-category="settlements" data-index="1">
+        <div class="ytl-card-browser-bar">
+          <div class="ytl-browser-left">
+            <div class="ytl-browser-dots">
+              <span class="ytl-browser-dot"></span>
+              <span class="ytl-browser-dot"></span>
+              <span class="ytl-browser-dot"></span>
+            </div>
+            <span class="ytl-card-mod-tag">MOD-02</span>
+            <span class="ytl-card-title-mini">Outstanding Trades · Pricing Months &amp; Volume Delta</span>
+          </div>
+          <button class="ytl-card-zoom-btn" title="Inspect screen in high resolution" aria-label="Inspect screen">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+          </button>
+        </div>
+        <div class="ytl-card-media">
+          <img src="images/screen-5.jpeg" alt="Outstanding trades screen with remaining pricing months and balance quantities" loading="lazy">
+          <div class="ytl-card-overlay">
+            <span class="ytl-zoom-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+              Quick Inspect
+            </span>
+          </div>
+        </div>
+        <div class="ytl-card-body">
+          <div class="ytl-card-meta">
+            <span class="ytl-category-badge">FX &amp; Settlements</span>
+            <span class="ytl-status-badge"><span class="badge-dot"></span> Auto-Calculated Volume</span>
+          </div>
+          <h3 class="ytl-card-heading">Outstanding Trades &amp; Pricing Months</h3>
+          <p class="ytl-card-desc">High-density position grid tracking unliquidated energy contracts across forward pricing months with real-time remaining balance and volume recalculation.</p>
+          <div class="ytl-card-chips">
+            <span class="ytl-chip">Pricing Months</span>
+            <span class="ytl-chip">Auto-Volume Math</span>
+            <span class="ytl-chip">Forward Curves</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Letter Template Registry -->
+      <div class="ytl-system-card" data-category="legal" data-index="2">
+        <div class="ytl-card-browser-bar">
+          <div class="ytl-browser-left">
+            <div class="ytl-browser-dots">
+              <span class="ytl-browser-dot"></span>
+              <span class="ytl-browser-dot"></span>
+              <span class="ytl-browser-dot"></span>
+            </div>
+            <span class="ytl-card-mod-tag">MOD-03</span>
+            <span class="ytl-card-title-mini">Letter Template Registry · Status &amp; Counterparty Mappings</span>
+          </div>
+          <button class="ytl-card-zoom-btn" title="Inspect screen in high resolution" aria-label="Inspect screen">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+          </button>
+        </div>
+        <div class="ytl-card-media">
+          <img src="images/screen-6.jpeg" alt="Letter template list showing template states, effective dates, and usage" loading="lazy">
+          <div class="ytl-card-overlay">
+            <span class="ytl-zoom-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+              Quick Inspect
+            </span>
+          </div>
+        </div>
+        <div class="ytl-card-body">
+          <div class="ytl-card-meta">
+            <span class="ytl-category-badge">Legal &amp; Audit Governance</span>
+            <span class="ytl-status-badge"><span class="badge-dot"></span> Zero-Code Config</span>
+          </div>
+          <h3 class="ytl-card-heading">Letter Template Master Registry</h3>
+          <p class="ytl-card-desc">Centralized registry displaying active, suspended, and draft state bindings across ISDA/GSA counterparties with effective date controls and mapping clarity.</p>
+          <div class="ytl-card-chips">
+            <span class="ytl-chip">ISDA / GSA Routing</span>
+            <span class="ytl-chip">Lifecycle States</span>
+            <span class="ytl-chip">Effective Dating</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Full Version History & Audit Trail -->
+      <div class="ytl-system-card" data-category="legal" data-index="3">
+        <div class="ytl-card-browser-bar">
+          <div class="ytl-browser-left">
+            <div class="ytl-browser-dots">
+              <span class="ytl-browser-dot"></span>
+              <span class="ytl-browser-dot"></span>
+              <span class="ytl-browser-dot"></span>
+            </div>
+            <span class="ytl-card-mod-tag">MOD-04</span>
+            <span class="ytl-card-title-mini">Template Version History · Immutable Audit Trail</span>
+          </div>
+          <button class="ytl-card-zoom-btn" title="Inspect screen in high resolution" aria-label="Inspect screen">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+          </button>
+        </div>
+        <div class="ytl-card-media">
+          <img src="images/screen-7.jpeg" alt="Version history for a letter template with prior versions and audit trail" loading="lazy">
+          <div class="ytl-card-overlay">
+            <span class="ytl-zoom-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+              Quick Inspect
+            </span>
+          </div>
+        </div>
+        <div class="ytl-card-body">
+          <div class="ytl-card-meta">
+            <span class="ytl-category-badge">Legal &amp; Audit Governance</span>
+            <span class="ytl-status-badge"><span class="badge-dot"></span> SOX 404 Compliant</span>
+          </div>
+          <h3 class="ytl-card-heading">Immutable Template Version History</h3>
+          <p class="ytl-card-desc">Granular revision tracker logging author identity, timestamped parameter diffs, and signatory revisions required for strict financial audit trails.</p>
+          <div class="ytl-card-chips">
+            <span class="ytl-chip">Immutable Diffing</span>
+            <span class="ytl-chip">SOX Audit Trail</span>
+            <span class="ytl-chip">User Attribution</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: Hedge Requests Filter Hub -->
+      <div class="ytl-system-card" data-category="risk" data-index="4">
+        <div class="ytl-card-browser-bar">
+          <div class="ytl-browser-left">
+            <div class="ytl-browser-dots">
+              <span class="ytl-browser-dot"></span>
+              <span class="ytl-browser-dot"></span>
+              <span class="ytl-browser-dot"></span>
+            </div>
+            <span class="ytl-card-mod-tag">MOD-05</span>
+            <span class="ytl-card-title-mini">Hedge Requests · Multi-Parameter Risk Triage</span>
+          </div>
+          <button class="ytl-card-zoom-btn" title="Inspect screen in high resolution" aria-label="Inspect screen">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+          </button>
+        </div>
+        <div class="ytl-card-media">
+          <img src="images/screen-8.jpeg" alt="Hedge requests list with filters for HRQ number, product type, and status" loading="lazy">
+          <div class="ytl-card-overlay">
+            <span class="ytl-zoom-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+              Quick Inspect
+            </span>
+          </div>
+        </div>
+        <div class="ytl-card-body">
+          <div class="ytl-card-meta">
+            <span class="ytl-category-badge">Risk &amp; Hedge Desk</span>
+            <span class="ytl-status-badge"><span class="badge-dot"></span> Deal Lifecycle</span>
+          </div>
+          <h3 class="ytl-card-heading">Hedge Request Lifecycle Filtration</h3>
+          <p class="ytl-card-desc">Multi-parameter risk triage allowing trading desk operators to filter hedge requests across fuel commodities, tenors, salesperson queues, and approval gates.</p>
+          <div class="ytl-card-chips">
+            <span class="ytl-chip">Commodity Triage</span>
+            <span class="ytl-chip">Tenor Filter</span>
+            <span class="ytl-chip">Approval Queues</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6: Hedge Requests at Scale -->
+      <div class="ytl-system-card" data-category="risk" data-index="5">
+        <div class="ytl-card-browser-bar">
+          <div class="ytl-browser-left">
+            <div class="ytl-browser-dots">
+              <span class="ytl-browser-dot"></span>
+              <span class="ytl-browser-dot"></span>
+              <span class="ytl-browser-dot"></span>
+            </div>
+            <span class="ytl-card-mod-tag">MOD-06</span>
+            <span class="ytl-card-title-mini">High-Scale Hedge Ledger · 12,000+ Production Records</span>
+          </div>
+          <button class="ytl-card-zoom-btn" title="Inspect screen in high resolution" aria-label="Inspect screen">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+          </button>
+        </div>
+        <div class="ytl-card-media">
+          <img src="images/screen-9.jpeg" alt="Hedge requests list at scale showing thousands of records" loading="lazy">
+          <div class="ytl-card-overlay">
+            <span class="ytl-zoom-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+              Quick Inspect
+            </span>
+          </div>
+        </div>
+        <div class="ytl-card-body">
+          <div class="ytl-card-meta">
+            <span class="ytl-category-badge">Risk &amp; Hedge Desk</span>
+            <span class="ytl-status-badge"><span class="badge-dot"></span> 12,000+ Records</span>
+          </div>
+          <h3 class="ytl-card-heading">High-Scale Density &amp; Performance</h3>
+          <p class="ytl-card-desc">Virtual-scrolling financial grid rendering over 12,000 active trade records with sub-100ms multi-column sorting and instant keyboard-navigable pagination.</p>
+          <div class="ytl-card-chips">
+            <span class="ytl-chip">12,000+ Records</span>
+            <span class="ytl-chip">Sub-100ms Sorting</span>
+            <span class="ytl-chip">Virtual Scroll</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fullscreen Lightbox Modal for System Screens -->
+  <div id="ytl-lightbox" class="ytl-lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="ytl-lightbox-container">
+      <div class="ytl-lightbox-header">
+        <div class="ytl-lightbox-title-box">
+          <span id="lightbox-counter" class="ytl-lightbox-counter">1 / 6</span>
+          <span id="lightbox-title" class="ytl-lightbox-title">Module Title</span>
+        </div>
+        <div class="ytl-lightbox-controls">
+          <button id="lightbox-prev" class="ytl-lightbox-btn" title="Previous screen (Left Arrow)" aria-label="Previous screen">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button id="lightbox-next" class="ytl-lightbox-btn" title="Next screen (Right Arrow)" aria-label="Next screen">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+          <button id="lightbox-close" class="ytl-lightbox-btn btn-close" title="Close modal (Esc)" aria-label="Close modal">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+      </div>
+      <div class="ytl-lightbox-body">
+        <img id="lightbox-img" class="ytl-lightbox-img" src="" alt="High resolution preview">
+      </div>
+      <div id="lightbox-footer" class="ytl-lightbox-footer">
+        Caption description
+      </div>
+    </div>
+  </div>
+
+  <section class="reveal">
+    <h2 style="margin-bottom:4px;">Outcome</h2>
+    <div class="outcomes reveal-group" style="margin-top:24px;">
+      <div class="outcome-stat">
+        <div class="num">~5 → 1.5d</div>
+        <div class="label">Monthly settlement prep time</div>
+      </div>
+      <div class="outcome-stat">
+        <div class="num">~30%</div>
+        <div class="label">Fewer manual reconciliation errors</div>
+      </div>
+      <div class="outcome-stat">
+        <div class="num">Same-day</div>
+        <div class="label">Letter template turnaround, down from an engineering ticket</div>
+      </div>
+    </div>
+    <p class="outcome-note">Figures are approximate, based on process change rather than formally tracked A/B data.</p>
+  </section>
+
+  <!-- Bottom Case Study Navigation -->
+  <div class="cs-nav-bottom reveal">
+    <a href="index.html#work">← Back to all selected work</a>
+    <a href="aic-portal.html">View Next: AIC Senior Engagement →</a>
+  </div>
+
+  <footer id="contact" class="reveal">
+    <div class="row">
+      <div>© 2026 Subith M</div>
+      <div style="display:flex;gap:24px;">
+        <a href="mailto:text2subith@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/subith-prabhakar-20b82a1b3" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="SubithCV.pdf" download="Subith_M_Resume.pdf" target="_blank">Resume</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  // Top Reading Progress Bar Calculation
+  window.addEventListener('scroll', () => {
+    const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    const progressBar = document.getElementById('progress-bar');
+    if (progressBar) {
+      progressBar.style.width = scrolled + '%';
+    }
+  });
+
+  // Scroll reveal with IntersectionObserver
+  document.addEventListener('DOMContentLoaded', () => {
+    const reveals = document.querySelectorAll('.reveal, .reveal-group');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+      reveals.forEach((el) => observer.observe(el));
+    } else {
+      reveals.forEach((el) => el.classList.add('is-visible'));
+    }
+
+    // ==========================================
+    // System Showcase Lightbox
+    // ==========================================
+    const systemCards = Array.from(document.querySelectorAll('.ytl-system-card'));
+    const lightbox = document.getElementById('ytl-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxTitle = document.getElementById('lightbox-title');
+    const lightboxCounter = document.getElementById('lightbox-counter');
+    const lightboxFooter = document.getElementById('lightbox-footer');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const lightboxPrev = document.getElementById('lightbox-prev');
+    const lightboxNext = document.getElementById('lightbox-next');
+
+    const screensData = [
+      {
+        src: 'images/screen-4.jpeg',
+        title: 'MOD-01 · Start New FX Settlement Period (Pre-Commit Matrix)',
+        desc: 'FX settlement — starting a new period with a preview of eligible trades and live balance verification before committing.'
+      },
+      {
+        src: 'images/screen-5.jpeg',
+        title: 'MOD-02 · Outstanding Trades & Remaining Pricing Months',
+        desc: 'Outstanding trades — unliquidated energy blocks with remaining volume auto-calculated across forward settlement curves.'
+      },
+      {
+        src: 'images/screen-6.jpeg',
+        title: 'MOD-03 · Letter Template Master Registry & Counterparty Routing',
+        desc: 'Letter template list — state lifecycle (Active, Draft, Suspended) and counterparty bindings visible prior to execution.'
+      },
+      {
+        src: 'images/screen-7.jpeg',
+        title: 'MOD-04 · Immutable Template Version History & SOX Audit Trail',
+        desc: 'Full version history per template — required for financial audit trail and change author attribution.'
+      },
+      {
+        src: 'images/screen-8.jpeg',
+        title: 'MOD-05 · Hedge Requests Multi-Parameter Risk Filtration',
+        desc: 'Hedge requests — filterable across product commodity type, salesperson queue, and deal lifecycle status.'
+      },
+      {
+        src: 'images/screen-9.jpeg',
+        title: 'MOD-06 · High-Scale Hedge Ledger (12,000+ Production Records)',
+        desc: 'Production-scale hedge ledger rendering over 12,000 records with sub-100ms multi-column sorting and virtualized scroll.'
+      }
+    ];
+
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      updateLightboxContent();
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function updateLightboxContent() {
+      const data = screensData[currentIndex];
+      lightboxImg.src = data.src;
+      lightboxImg.alt = data.title;
+      lightboxTitle.textContent = data.title;
+      lightboxCounter.textContent = `${currentIndex + 1} / ${screensData.length}`;
+      lightboxFooter.textContent = data.desc;
+    }
+
+    function prevScreen() {
+      currentIndex = (currentIndex - 1 + screensData.length) % screensData.length;
+      updateLightboxContent();
+    }
+
+    function nextScreen() {
+      currentIndex = (currentIndex + 1) % screensData.length;
+      updateLightboxContent();
+    }
+
+    // Attach click triggers to cards
+    systemCards.forEach((card, idx) => {
+      const media = card.querySelector('.ytl-card-media');
+      const zoomBtn = card.querySelector('.ytl-card-zoom-btn');
+      
+      if (media) {
+        media.addEventListener('click', () => openLightbox(idx));
+      }
+      if (zoomBtn) {
+        zoomBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          openLightbox(idx);
+        });
+      }
+    });
+
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+    if (lightboxPrev) lightboxPrev.addEventListener('click', prevScreen);
+    if (lightboxNext) lightboxNext.addEventListener('click', nextScreen);
+
+    // Click outside lightbox container to close
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    // Keyboard navigation
+    window.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('is-open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') prevScreen();
+      if (e.key === 'ArrowRight') nextScreen();
+    });
+  });
+</script>
+
+<script src="cursor.js"></script>
+</body>
+</html>
+

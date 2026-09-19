@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sun Mobility CNC Portal — Subith M</title>
+<link rel="stylesheet" href="style.css">
+<script src="theme.js"></script>
+</head>
+<body>
+
+<!-- Interactive Top Reading Progress Bar -->
+<div id="progress-bar"></div>
+
+<div class="wrap">
+  <nav class="nav animate-fade-up">
+    <a href="index.html" class="name">Subith M</a>
+    <div class="links">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#about">About</a>
+      <a href="SubithCV.pdf" download="Subith_M_Resume.pdf" target="_blank">Resume</a>
+      <a href="index.html#contact">Contact</a>
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg class="sun-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Case Study Header -->
+  <section class="cs-hero animate-fade-up delay-1">
+    <a href="index.html" class="back-link">← Back to work</a>
+    <div class="meta cs-meta">
+      <span class="cs-meta-tag" style="background: #E8F5E9; color: #1B5E20;">IoT &amp; CleanTech Telemetry</span>
+      <span class="dot">·</span>
+      <span>Sun Mobility</span>
+      <span class="dot">·</span>
+      <span>2025</span>
+      <span class="dot">·</span>
+      <span>Senior Product Designer</span>
+    </div>
+    <h1>Designing the Central Network Operations Center (CNC) for high-throughput EV battery swap infrastructure</h1>
+  </section>
+
+  <!-- Multi-Screen Hero Showcase with Minor Floating Animations -->
+  <div class="cs-hero-showcase animate-fade-up delay-2">
+    <div class="showcase-stage">
+      <!-- Base Layer Screen: Station Live Dock Matrix & Power Stats -->
+      <div class="showcase-screen-base">
+        <div class="browser-header">
+          <div class="browser-dots">
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+          </div>
+          <span class="browser-title-mini">Sun Mobility CNC · Station Live — 5-Rack Dock Matrix &amp; 3-Phase Power Telemetry</span>
+        </div>
+        <div class="browser-content">
+          <img src="images/sun-mobility-station-live.png" alt="Sun Mobility Station Live Dock Matrix showing 5-rack charging bays and power statistics">
+        </div>
+      </div>
+
+      <!-- Floating Foreground Screen: Vehicle Live Geospatial Fleet Map -->
+      <div class="showcase-screen-float" style="width: 56%; right: 0; bottom: 0;">
+        <div class="browser-header" style="background: #E0E7DC;">
+          <div class="browser-dots">
+            <span class="browser-dot" style="background:#B6C4B0;"></span>
+            <span class="browser-dot" style="background:#B6C4B0;"></span>
+            <span class="browser-dot" style="background:#B6C4B0;"></span>
+          </div>
+          <span class="browser-title-mini" style="color: #1B5E20; font-weight: 600;">Vehicle Live · 10,080 HEVs Real-Time Fleet Map</span>
+        </div>
+        <div class="browser-content">
+          <img src="images/sun-mobility-vehicle-live.png" alt="Sun Mobility Vehicle Live geospatial map tracking 10,080 electric buses and commercial trucks">
+        </div>
+      </div>
+
+      <!-- Live Telemetry Status Pill -->
+      <div class="showcase-screen-pill" style="background: #15171B;">
+        <span class="live-dot" style="background: #00E676; box-shadow: 0 0 10px #00E676;"></span>
+        <span>TELEMETRY STREAM · 10,080 HEVs ACTIVE</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Context Section -->
+  <section class="prose tight reveal" style="padding-top:0;">
+    <h2>Context</h2>
+    <p style="margin-top:14px;">Sun Mobility is a global pioneer in electric vehicle battery swapping technology, replacing conventional hours-long plug-in charging with automated <strong>48-second battery pack swaps</strong> for commercial fleets, transit buses, and last-mile delivery vehicles.</p>
+    <p>The <strong>CNC (Central Network Command) Portal</strong> serves as the mission-critical central nervous system for network operations engineers, dispatch managers, and safety compliance teams. The portal continuously ingests high-frequency IoT telemetry streams from thousands of connected battery packs (Smart Cassettes), automated swap stations, and active commercial vehicle fleets operating across major metropolitan zones.</p>
+  </section>
+
+  <!-- Problem Section -->
+  <section class="prose tight reveal">
+    <h2>The Challenge</h2>
+    <p style="margin-top:14px;">In high-throughput EV swapping, operational failures carry severe real-world consequences: a single dock charging fault or thermal anomaly can stall an entire commercial bus fleet during morning transit hours. Operators were previously overwhelmed by disconnected monitoring tabs, raw unparsed JSON telemetry streams, and lack of visual spatial mapping between physical charging docks and digital health diagnostics.</p>
+  </section>
+
+  <!-- Pull Quote -->
+  <section class="tight reveal">
+    <div class="pull" style="border-left-color: #235952;">
+      <p>When an electric bus pulls into a swap bay, 48 seconds is the entire SLA. Operations engineers can't spend 30 seconds searching through database rows to figure out which battery dock is ready.</p>
+    </div>
+  </section>
+
+  <!-- Design Principles Section (Principles that guided decisions) -->
+  <section class="cs-principles-section reveal">
+    <span class="principles-eyebrow">DESIGN PRINCIPLES</span>
+    <h2 class="principles-title">Principles that guided decisions</h2>
+
+    <div class="principles-list">
+      <div class="principle-row">
+        <div class="principle-num">01</div>
+        <div class="principle-body">
+          <div class="principle-heading">Glanceable physical digital twins over raw tables</div>
+          <p class="principle-desc">Map charging bays directly to their physical 5-rack spatial topology so technicians instantly locate empty, charging, cooling, or degraded docks without mental translation.</p>
+        </div>
+      </div>
+
+      <div class="principle-row">
+        <div class="principle-num">02</div>
+        <div class="principle-body">
+          <div class="principle-heading">Triaged severity coding for zero-latency intervention</div>
+          <p class="principle-desc">Standardize high-contrast severity tiers (Critical, Warning, Caution) for rapid thermal runaway prevention and electrical abuse mitigation.</p>
+        </div>
+      </div>
+
+      <div class="principle-row">
+        <div class="principle-num">03</div>
+        <div class="principle-body">
+          <div class="principle-heading">Seamless macro-to-micro asset hierarchy</div>
+          <p class="principle-desc">Enable frictionless drill-down from citywide fleet density (10,000+ vehicles) down to individual station electrical phases and sub-pack State-of-Charge (SOC).</p>
+        </div>
+      </div>
+
+      <div class="principle-row">
+        <div class="principle-num">04</div>
+        <div class="principle-body">
+          <div class="principle-heading">Jitter-free continuous 30-second live polling</div>
+          <p class="principle-desc">Design data tables and status pills to update dynamically in place without disorienting layout shifts or scroll jumping during high-frequency telemetry refreshes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Deep Dive 1: Station Live Digital Twin -->
+  <section class="reveal" style="margin-top: 24px;">
+    <div class="meta" style="margin-bottom: 12px;">
+      <span class="cs-meta-tag" style="background: #E8F5E9; color: #1B5E20;">SUBSYSTEM 01</span>
+      <span class="dot">·</span>
+      <span>AUTOMATED SWAP STATION TELEMETRY</span>
+    </div>
+    <h2 style="font-size: 34px; margin-bottom: 12px;">The Station Digital Twin &amp; Physical Dock Matrix</h2>
+    <p class="prose muted">Visualizing automated 5-rack charging stations in real time, connecting 3-phase grid power metrics directly with individual battery slot temperatures and State-of-Charge (SOC).</p>
+
+    <div class="decision reveal" style="margin-top: 36px;">
+      <h3>1. Spatial Rack Matrix with Real-Time Thermal &amp; Voltage States</h3>
+      <p>Instead of presenting swap stations as abstract metric lists, I designed an interactive <strong>Digital Twin Dock Matrix</strong> mirroring the physical station layout (Racks 1 through 5, with CTMS and BTMS thermal controllers). Docks clearly communicate their exact operational status (Empty Dock, 60% Charging at 725V/427A, 100% Ready for Swap at 28°C, or Active Chiller Cooling), while top-level KPI cards surface daily swap counts (120 Swaps: 90 Success, 30 Failures) and 3-phase power health (Phase R/Y/B).</p>
+    </div>
+
+    <div class="screen-frame-browser screen-block contained reveal">
+      <div class="browser-header">
+        <div class="browser-dots">
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+        </div>
+        <span class="browser-title-mini">Station Live · Station WMQISXM1V1-00291 (Whitefield, Bengaluru) — Dock Visual Matrix</span>
+      </div>
+      <div class="browser-content">
+        <img src="images/sun-mobility-station-live.png" alt="Station Live screen showing 5-rack dock matrix with charging voltages, temperatures, and power statistics">
+      </div>
+      <div class="screen-caption" style="padding: 12px 16px; background: #FAF9F6; margin: 0; border-top: 1px solid var(--line);">
+        Station Digital Twin — Visual charging matrix mapping battery capacities (25kWh, 55kWh, 100kWh), remaining charge duration, and chiller temperature status (28°C Healthy).
+      </div>
+    </div>
+  </section>
+
+  <!-- Deep Dive 2: Geospatial Fleet Telemetry -->
+  <section class="reveal">
+    <div class="meta" style="margin-bottom: 12px;">
+      <span class="cs-meta-tag" style="background: #E8F5E9; color: #1B5E20;">SUBSYSTEM 02</span>
+      <span class="dot">·</span>
+      <span>HEAVY EV FLEET ORCHESTRATION</span>
+    </div>
+    <h2 style="font-size: 34px; margin-bottom: 12px;">Geospatial Fleet Tracking &amp; Route Telemetry</h2>
+    <p class="prose muted">Live GPS-synchronized tracking of 10,000+ commercial electric vehicles across urban corridors to optimize battery swap dispatch and prevent roadside depletion.</p>
+
+    <div class="decision reveal" style="margin-top: 36px;">
+      <h3>2. Citywide Density Mapping with Multi-Class Vehicle Categorization</h3>
+      <p>Managing commercial fleets requires live spatial awareness. I architected the <strong>Vehicle Live</strong> map console, capable of rendering over 10,000 Heavy Electric Vehicles (Electric Transit Buses and Commercial Delivery Trucks) across metropolitan zones with instant customer-type and zone-level filtering, allowing dispatchers to detect fleet bottlenecks and route vehicles to high-capacity swap stations.</p>
+    </div>
+
+    <div class="screen-frame-browser screen-block contained reveal">
+      <div class="browser-header">
+        <div class="browser-dots">
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+        </div>
+        <span class="browser-title-mini">Vehicle Live · Geospatial Map View — 10,080 Active Commercial HEVs</span>
+      </div>
+      <div class="browser-content">
+        <img src="images/sun-mobility-vehicle-live.png" alt="Vehicle Live map view showing 10,080 electric buses and delivery trucks plotted across Bengaluru">
+      </div>
+      <div class="screen-caption" style="padding: 12px 16px; background: #FAF9F6; margin: 0; border-top: 1px solid var(--line);">
+        Geospatial Fleet Operations — Real-time telemetry map tracking electric buses and freight trucks across metro corridors with instant switch between Map View and Data View.
+      </div>
+    </div>
+  </section>
+
+  <!-- Deep Dive 3: Battery Pack Telemetry & Anomaly Diagnostics -->
+  <section class="reveal">
+    <div class="meta" style="margin-bottom: 12px;">
+      <span class="cs-meta-tag" style="background: #E8F5E9; color: #1B5E20;">SUBSYSTEM 03</span>
+      <span class="dot">·</span>
+      <span>BATTERY CASSETTE &amp; ALERT TRIAGE</span>
+    </div>
+    <h2 style="font-size: 34px; margin-bottom: 12px;">Battery Pack Diagnostics &amp; Rapid Exception Triage</h2>
+    <p class="prose muted">Sub-second telemetry monitoring across Smart Battery Cassettes and automated incident stream detection for station downtime prevention.</p>
+
+    <!-- Cassette Live Screen -->
+    <div class="decision reveal" style="margin-top: 36px;">
+      <h3>3. Granular Cassette Telemetry &amp; State-of-Charge (SOC) Thresholding</h3>
+      <p>Smart Cassettes represent the core energy assets. I structured the <strong>Cassette Live</strong> ledger to provide rapid scannability across 10,000+ battery packs, with high-visibility color-coded SOC badges (&gt;75% Green, 30–75% Orange, &lt;30% Red), battery chemistry types (25kWh, 55kWh, 110kWh), and real-time operational modes (Discharging on vehicle, Charging in dock, Idle).</p>
+    </div>
+
+    <div class="screen-frame-browser screen-block contained reveal">
+      <div class="browser-header">
+        <div class="browser-dots">
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+        </div>
+        <span class="browser-title-mini">Cassette Live · Real-Time Battery Pack Telemetry Stream</span>
+      </div>
+      <div class="browser-content">
+        <img src="images/sun-mobility-cassette-live.png" alt="Cassette Live data table showing battery pack types, modes, dock IDs, and color-coded SOC badges">
+      </div>
+      <div class="screen-caption" style="padding: 12px 16px; background: #FAF9F6; margin: 0; border-top: 1px solid var(--line);">
+        Battery Pack Telemetry — Real-time stream with 30-second live refresh toggle, threshold-coded SOC badges, vehicle VIN associations, and dock allocations.
+      </div>
+    </div>
+
+    <!-- Station Alerts & Cassette Alerts Side-by-Side Split -->
+    <div class="decision reveal" style="margin-top: 48px;">
+      <h3>4. Severity-Coded Incident Streams (Station &amp; Cassette Alerts)</h3>
+      <p>When hardware anomalies arise, operators need instantaneous triage. I designed synchronized alert feeds: <strong>Station Alerts</strong> flag electrical grid dropouts and non-operational bays, while <strong>Cassette Alerts</strong> categorize critical electrical abuse (E-Abuse), over-temperature events, and safety interlocks with clear severity hierarchy (Critical, Warning, Caution).</p>
+    </div>
+
+    <div class="screens-grid-compact reveal-group">
+      <figure class="screen-frame-browser">
+        <div class="browser-header" style="background: #F4F2EB;">
+          <div class="browser-dots">
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+          </div>
+          <span class="browser-title-mini">Station Alerts · Grid &amp; Dock Failure Stream</span>
+        </div>
+        <div class="browser-content">
+          <img src="images/sun-mobility-station-alerts.png" alt="Station Alerts table showing station offline status, reduced performance flags, and operational states">
+        </div>
+        <figcaption style="padding: 10px 14px; background: #FAF9F6; margin: 0; border-top: 1px solid var(--line);">
+          Station Alerts — Tracks power outages, iStatus offline triggers, reduced performance flags, and station hardware versions.
+        </figcaption>
+      </figure>
+
+      <figure class="screen-frame-browser">
+        <div class="browser-header" style="background: #F4F2EB;">
+          <div class="browser-dots">
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+          </div>
+          <span class="browser-title-mini">Cassette Alerts · Battery Safety &amp; E-Abuse</span>
+        </div>
+        <div class="browser-content">
+          <img src="images/sun-mobility-cassette-alerts.png" alt="Cassette Alerts table showing Critical, Warning, and Caution severity levels for battery packs">
+        </div>
+        <figcaption style="padding: 10px 14px; background: #FAF9F6; margin: 0; border-top: 1px solid var(--line);">
+          Cassette Alerts — Severity-coded incident feed highlighting safety critical codes (1021, 3452) and electrical abuse events.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Outcome Section -->
+  <section class="reveal">
+    <h2 style="margin-bottom:4px;">Key Outcomes &amp; Impact</h2>
+    <div class="outcomes reveal-group" style="margin-top:24px;">
+      <div class="outcome-stat">
+        <div class="num">&lt; 48s</div>
+        <div class="label">Average battery swap turnaround time, beating commercial SLA targets</div>
+      </div>
+      <div class="outcome-stat">
+        <div class="num">99.4%</div>
+        <div class="label">Swap station network operational uptime across urban transit deployments</div>
+      </div>
+      <div class="outcome-stat">
+        <div class="num">10,000+</div>
+        <div class="label">Connected electric vehicles &amp; smart battery packs monitored concurrently</div>
+      </div>
+    </div>
+    <p class="outcome-note">Based on live production telemetry metrics and central control room operational dispatch logs.</p>
+  </section>
+
+  <!-- Bottom Case Study Navigation -->
+  <div class="cs-nav-bottom reveal">
+    <a href="index.html#work">← Back to all selected work</a>
+    <a href="seaverse.html">View Next: Seaverse Maritime LMS →</a>
+  </div>
+
+  <footer id="contact" class="reveal">
+    <div class="row">
+      <div>© 2026 Subith M</div>
+      <div style="display:flex;gap:24px;">
+        <a href="mailto:text2subith@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/subith-prabhakar-20b82a1b3" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="SubithCV.pdf" download="Subith_M_Resume.pdf" target="_blank">Resume</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  // Top Reading Progress Bar Calculation
+  window.addEventListener('scroll', () => {
+    const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    const progressBar = document.getElementById('progress-bar');
+    if (progressBar) {
+      progressBar.style.width = scrolled + '%';
+    }
+  });
+
+  // Scroll reveal with IntersectionObserver
+  document.addEventListener('DOMContentLoaded', () => {
+    const reveals = document.querySelectorAll('.reveal, .reveal-group');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+      reveals.forEach((el) => observer.observe(el));
+    } else {
+      reveals.forEach((el) => el.classList.add('is-visible'));
+    }
+  });
+</script>
+
+<script src="cursor.js"></script>
+</body>
+</html>

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iTrack Enterprise Issue Resolution & SLA Governance — Subith M</title>
+<link rel="stylesheet" href="style.css">
+<script src="theme.js"></script>
+<style>
+  /* Specialized Smooth-Scroll & Distinct Layout Styles for iTrack Case Study */
+  /* Sticky Sub-Nav Jump Bar */
+  .itrack-sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(250, 248, 243, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    margin: 32px 0 48px;
+    padding: 12px 0;
+    transition: background 0.3s ease, border-color 0.3s ease;
+  }
+  [data-theme="dark"] .itrack-sticky-nav {
+    background: rgba(14, 17, 23, 0.92);
+    border-bottom-color: #222836;
+  }
+
+  .itrack-nav-pills {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .itrack-nav-pills::-webkit-scrollbar {
+    display: none;
+  }
+
+  .itrack-nav-pill {
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: transparent;
+    border: 1px solid transparent;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    color: var(--muted);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+  }
+  .itrack-nav-pill:hover,
+  .itrack-nav-pill.active {
+    background: var(--card-bg);
+    border-color: var(--card-border);
+    color: var(--ink);
+  }
+  [data-theme="dark"] .itrack-nav-pill:hover,
+  [data-theme="dark"] .itrack-nav-pill.active {
+    background: #181D28;
+    border-color: #2A3344;
+    color: #3DD9A5;
+  }
+
+  /* Section Title Block */
+  .cs-section-header {
+    margin: 64px 0 24px;
+  }
+  .cs-section-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--teal-accent);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: inline-block;
+  }
+  .cs-section-heading {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--ink);
+    margin: 0 0 14px 0;
+  }
+  .cs-section-lead {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.65;
+    max-width: 740px;
+    margin: 0;
+  }
+
+  /* Highlight Feature Grid */
+  .feature-breakdown-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 28px 0 48px;
+  }
+  @media (max-width: 860px) {
+    .feature-breakdown-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .fb-card {
+    background: #FFFFFF;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 22px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  [data-theme="dark"] .fb-card {
+    background: #141822;
+    border-color: #242B3A;
+  }
+  .fb-card:hover {
+    transform: translateY(-3px);
+    border-color: #C2CAD6;
+    box-shadow: 0 14px 32px rgba(21, 23, 27, 0.06);
+  }
+  [data-theme="dark"] .fb-card:hover {
+    border-color: #384358;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+  }
+
+  .fb-title {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .fb-title::before {
+    content: '◆';
+    color: var(--teal-accent);
+    font-size: 11px;
+  }
+
+  .fb-desc {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* Two-Screen Master Data Layout */
+  .master-data-dual-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin: 32px 0 56px;
+  }
+  @media (max-width: 860px) {
+    .master-data-dual-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .master-data-card {
+    display: flex;
+    flex-direction: column;
+  }
+  .master-data-card figcaption {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .master-data-card figcaption::before {
+    content: '↳';
+    color: var(--teal-accent);
+  }
+</style>
+</head>
+<body>
+
+<!-- Interactive Top Reading Progress Bar -->
+<div id="progress-bar"></div>
+
+<div class="wrap">
+  <nav class="nav animate-fade-up">
+    <a href="index.html" class="name">Subith M</a>
+    <div class="links">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#about">About</a>
+      <a href="SubithCV.pdf" download="Subith_M_Resume.pdf" target="_blank">Resume</a>
+      <a href="index.html#contact">Contact</a>
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg class="sun-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Case Study Header -->
+  <section class="cs-hero animate-fade-up delay-1">
+    <a href="index.html" class="back-link">← Back to work</a>
+    <div class="meta cs-meta">
+      <span>Enterprise SaaS &amp; Workflow Ops</span>
+      <span class="dot">·</span>
+      <span>iTrack</span>
+      <span class="dot">·</span>
+      <span>2025</span>
+      <span class="dot">·</span>
+      <span>Lead Product Designer</span>
+    </div>
+    <h1>Designing an intelligent issue resolution &amp; multi-tenant SLA governance system</h1>
+  </section>
+
+  <!-- Multi-Screen Hero Showcase (Dashboard is the first prominent screen) -->
+  <div class="cs-hero-showcase animate-fade-up delay-2">
+    <div class="showcase-stage">
+      <!-- Base Layer Screen: Executive Resolution & SLA Telemetry Dashboard -->
+      <div class="showcase-screen-base">
+        <div class="browser-header">
+          <div class="browser-dots">
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+          </div>
+          <span class="browser-title-mini">iTrack · Executive Resolution &amp; SLA Telemetry Dashboard</span>
+        </div>
+        <div class="browser-content">
+          <img src="images/itrack-dashboard.png" alt="iTrack Executive Resolution &amp; SLA Dashboard showing SLA breach bars and severity distribution">
+        </div>
+      </div>
+
+      <!-- Floating Foreground Screen: AI Triage & Similar Cases Modal -->
+      <div class="showcase-screen-float">
+        <div class="browser-header" style="background: #EAE6DC;">
+          <div class="browser-dots">
+            <span class="browser-dot" style="background:#C4BFB2;"></span>
+            <span class="browser-dot" style="background:#C4BFB2;"></span>
+            <span class="browser-dot" style="background:#C4BFB2;"></span>
+          </div>
+          <span class="browser-title-mini" style="color: #1C2B45; font-weight: 500;">AI Triage · Similar Cases (50.7% Match)</span>
+        </div>
+        <div class="browser-content">
+          <img src="images/itrack-modal-create.png" alt="iTrack AI-Assisted Issue Ingestion with Similar Cases Recommendation">
+        </div>
+      </div>
+
+      <!-- Live Production Status Pill -->
+      <div class="showcase-screen-pill">
+        <span class="live-dot"></span>
+        <span>REAL-TIME SLA TELEMETRY · LIVE DEPLOYMENT</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <!-- Sticky Section Jump Bar for Seamless Scroll Exploration -->
+  <div class="itrack-sticky-nav">
+    <div class="itrack-nav-pills">
+      <a href="#context" class="itrack-nav-pill">00 · Context</a>
+      <a href="#dashboard" class="itrack-nav-pill">01 · SLA Dashboard</a>
+      <a href="#triage" class="itrack-nav-pill">02 · AI Triage Modal</a>
+      <a href="#resolution-grid" class="itrack-nav-pill">03 · Operations Grid</a>
+      <a href="#ticket-thread" class="itrack-nav-pill">04 · Resolution Thread</a>
+      <a href="#master-taxonomy" class="itrack-nav-pill">05 · Master Taxonomy</a>
+      <a href="#outcomes" class="itrack-nav-pill">06 · Impact</a>
+    </div>
+  </div>
+
+  <!-- Context & Challenge Section -->
+  <section id="context" class="prose tight reveal" style="padding-top:0;">
+    <h2>Context</h2>
+    <p style="margin-top:14px;">Enterprise software organizations handling multiple customer cloud contracts frequently struggle with fragmented issue resolution. Engineers waste hours sifting through duplicate tickets, support leads struggle to prioritize critical blockers, and executive leadership lacks real-time visibility into contract-bound SLA compliance.</p>
+    <p>iTrack was designed as an end-to-end enterprise issue resolution platform spanning <strong>predictive AI triage</strong> at the point of ingestion, <strong>high-density resolution grids</strong> for cross-functional engineering teams, and <strong>real-time SLA telemetry</strong> for operations leadership.</p>
+  </section>
+
+  <!-- Problem Section -->
+  <section class="prose tight reveal">
+    <h2>The Challenge</h2>
+    <p style="margin-top:14px;">Legacy ticketing systems forced engineers through 50-field static forms, leading to rushed submissions, misclassified severities, and rampant duplicate filings. When an issue breached an SLA threshold, managers only found out after customer escalation.</p>
+  </section>
+
+  <!-- Pull Quote -->
+  <section class="tight reveal">
+    <div class="pull">
+      <p>In high-throughput engineering workflows, every duplicate ticket wastes 2.5 hours of triage time. iTrack turns triage from a reactive chore into an intelligent, pre-ingestion recommendation loop.</p>
+    </div>
+  </section>
+
+  <!-- Section 1: Executive Dashboard & SLA Telemetry (The First Screen Breakdown) -->
+  <section id="dashboard" class="reveal">
+    <div class="cs-section-header">
+      <span class="cs-section-tag">SCREEN 01 · EXECUTIVE COMMAND</span>
+      <h2 class="cs-section-heading">Executive Resolution &amp; Real-Time SLA Dashboard</h2>
+      <p class="cs-section-lead">Providing engineering leadership and operational directors with instantaneous visibility across active backlogs, contract SLA risks, and discipline distributions.</p>
+    </div>
+
+    <!-- Screen Frame -->
+    <div class="screen-frame-browser">
+      <div class="browser-header">
+        <div class="browser-dots">
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+        </div>
+        <span class="browser-title-mini">iTrack · Executive Resolution &amp; SLA Telemetry Dashboard</span>
+      </div>
+      <img src="images/itrack-dashboard.png" alt="iTrack Executive Resolution Dashboard showing SLA status bars and severity donut">
+    </div>
+    <div class="screen-caption">Executive Dashboard with SLA status metrics, severity distribution donut (Total 352), and category volume trends</div>
+
+    <!-- Feature Breakdown Cards -->
+    <div class="feature-breakdown-grid">
+      <div class="fb-card">
+        <div class="fb-title">Actionable KPI Row</div>
+        <p class="fb-desc">Scannable metric tiles tracking Overdue (355), Due Today (12), Open Tickets (352), and Unassigned items with day-over-day velocity indicators.</p>
+      </div>
+
+      <div class="fb-card">
+        <div class="fb-title">SLA Status Distribution</div>
+        <p class="fb-desc">Color-coded bar chart telemetry contrasting Active SLAs vs. Breached SLAs (355) vs. Resolved Breached (20) to pinpoint systemic bottleneck phases.</p>
+      </div>
+
+      <div class="fb-card">
+        <div class="fb-title">Severity Donut Breakdown</div>
+        <p class="fb-desc">Multi-slice severity ratio separating Severity-1 (234 critical), Severity-2 (40 medium), and Severity-3 (78 standard) for immediate capacity allocation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: AI-Powered Smart Ingestion & Triage Modal -->
+  <section id="triage" class="reveal">
+    <div class="cs-section-header">
+      <span class="cs-section-tag">SCREEN 02 · INTELLIGENT INGESTION</span>
+      <h2 class="cs-section-heading">AI-Assisted Issue Ingestion &amp; Similar Cases Matcher</h2>
+      <p class="cs-section-lead">Stopping duplicate tickets at the point of creation through real-time ML similarity scanning, automated root cause prediction, and 1-click field autofill.</p>
+    </div>
+
+    <!-- Modal Aside Composition -->
+    <div class="modal-aside-composition">
+      <div class="modal-back-screen">
+        <div class="browser-header">
+          <div class="browser-dots">
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+          </div>
+          <span class="browser-title-mini">Create Ticket Modal · Split Intelligent Recommendation Viewport</span>
+        </div>
+        <img src="images/itrack-modal-create.png" alt="iTrack AI-Assisted Issue Ingestion and Similar Cases Modal">
+      </div>
+    </div>
+    <div class="screen-caption">Create New Ticket modal with real-time ML Similar Cases recommendation pane (50.7% match on Case #T02018)</div>
+
+    <!-- UX Decisions for Ingestion -->
+    <div class="feature-breakdown-grid">
+      <div class="fb-card">
+        <div class="fb-title">Pre-Submission Deduplication</div>
+        <p class="fb-desc">As the submitter types the title and description, the right-hand recommendation engine surfaces existing open or resolved bugs with matching percentage scores.</p>
+      </div>
+
+      <div class="fb-card">
+        <div class="fb-title">1-Click Field Autofill</div>
+        <p class="fb-desc">"Apply Fields" extracts validated component metadata, defect phase, and severity classifications directly into the form, accelerating entry.</p>
+      </div>
+
+      <div class="fb-card">
+        <div class="fb-title">Root Cause Linking</div>
+        <p class="fb-desc">Enables submitters to link their issue to existing parent incidents with one click, preserving single-source-of-truth investigation threads.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: High-Density Multi-Column Operations Grid -->
+  <section id="resolution-grid" class="reveal">
+    <div class="cs-section-header">
+      <span class="cs-section-tag">SCREEN 03 · OPERATIONS LEDGER</span>
+      <h2 class="cs-section-heading">High-Throughput Multi-Column Resolution Grid</h2>
+      <p class="cs-section-lead">Engineered for support leads and engineers managing 1,000+ active workstreams with inline state modifiers, multi-project filters, and severity coding.</p>
+    </div>
+
+    <div class="screen-frame-browser">
+      <div class="browser-header">
+        <div class="browser-dots">
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+        </div>
+        <span class="browser-title-mini">View Tickets · High-Density Operations Grid (100 Rows / Page)</span>
+      </div>
+      <img src="images/itrack-view-tickets.png" alt="iTrack Multi-Column Ticket Management Data Grid">
+    </div>
+    <div class="screen-caption">100-row paginated data grid with inline status dropdowns, multi-tenant project selectors, and severity shield indicators</div>
+
+    <div class="feature-breakdown-grid">
+      <div class="fb-card">
+        <div class="fb-title">Inline State Modifiers</div>
+        <p class="fb-desc">Status chips double as interactive dropdowns—allowing engineers to transition issues (In Progress, Resolved, Reopened) without leaving the list view.</p>
+      </div>
+
+      <div class="fb-card">
+        <div class="fb-title">Visual Severity Coding</div>
+        <p class="fb-desc">Red shield icons designate Severity-1 blockers requiring immediate attention, while amber and neutral shields distinguish medium and low priorities.</p>
+      </div>
+
+      <div class="fb-card">
+        <div class="fb-title">Multi-Tenant Project Facets</div>
+        <p class="fb-desc">Instant filtering across disparate enterprise client portals (ABC Fintech, Alpha Edutech, Smart Learning) with saved multi-dimensional views.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Deep Issue Context & Resolution Thread -->
+  <section id="ticket-thread" class="reveal">
+    <div class="cs-section-header">
+      <span class="cs-section-tag">SCREEN 04 · RESOLUTION HUB</span>
+      <h2 class="cs-section-heading">Two-Column Issue Context &amp; Governance Thread</h2>
+      <p class="cs-section-lead">Decoupling engineering conversation from strict SLA compliance timestamps, role assignments, and lifecycle milestone tracking.</p>
+    </div>
+
+    <div class="screen-frame-browser">
+      <div class="browser-header">
+        <div class="browser-dots">
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+        </div>
+        <span class="browser-title-mini">Ticket #T02018 · UI Alignment Investigation &amp; Resolution Hub</span>
+      </div>
+      <img src="images/itrack-ticket-detail.png" alt="iTrack Single Ticket Detail View with Activity Thread and Metadata Inspector">
+    </div>
+    <div class="screen-caption">Detailed resolution hub showing threaded collaboration on the left and dedicated SLA metadata inspector on the right</div>
+
+    <div class="feature-breakdown-grid">
+      <div class="fb-card">
+        <div class="fb-title">Chronological Activity Hub</div>
+        <p class="fb-desc">Tabbed timeline separating developer discussions (Comments), file attachments/screenshots, and immutable system audit logs.</p>
+      </div>
+
+      <div class="fb-card">
+        <div class="fb-title">SLA Metadata Inspector</div>
+        <p class="fb-desc">Right-hand governance rail displaying exact submission dates, target resolution deadlines, and running Track Time metrics (12 D).</p>
+      </div>
+
+      <div class="fb-card">
+        <div class="fb-title">Owner vs. Assignee Duality</div>
+        <p class="fb-desc">Maintains clear accountability by distinguishing between original ticket owner (Ken Adams) and the currently assigned resolving engineer (Monica Collins).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Master Taxonomy & Field Governance (Two-Screen Showcase!) -->
+  <section id="master-taxonomy" class="reveal">
+    <div class="cs-section-header">
+      <span class="cs-section-tag">SCREEN 05 &amp; 06 · SYSTEM GOVERNANCE</span>
+      <h2 class="cs-section-heading">Multi-Tenant Master Taxonomy &amp; Field Customization Engine</h2>
+      <p class="cs-section-lead">Providing system administrators with deep multi-tier master data control across categories, defect hierarchies, RCA models, and dynamic field visibility.</p>
+    </div>
+
+    <!-- Dual Screen Grid for Manage Section -->
+    <div class="master-data-dual-grid">
+      <!-- Screen 5: Manage - Category Master -->
+      <figure class="master-data-card">
+        <div class="screen-frame-browser">
+          <div class="browser-header">
+            <div class="browser-dots">
+              <span class="browser-dot"></span>
+              <span class="browser-dot"></span>
+              <span class="browser-dot"></span>
+            </div>
+            <span class="browser-title-mini">Manage · Category &amp; Defect Masters</span>
+          </div>
+          <img src="images/itrack-manage-categories.png" alt="iTrack Manage Category Master Table with Project Bindings">
+        </div>
+        <figcaption>Manage Category: Mapping classification rules to specific enterprise project cloud contracts</figcaption>
+      </figure>
+
+      <!-- Screen 6: Manage - Field Master -->
+      <figure class="master-data-card">
+        <div class="screen-frame-browser">
+          <div class="browser-header">
+            <div class="browser-dots">
+              <span class="browser-dot"></span>
+              <span class="browser-dot"></span>
+              <span class="browser-dot"></span>
+            </div>
+            <span class="browser-title-mini">Manage · Field Master Visibility Engine</span>
+          </div>
+          <img src="images/itrack-manage-field-master.png" alt="iTrack Manage Field Master Table showing dynamic field configuration">
+        </div>
+        <figcaption>Manage Field Master: Dynamic form field configuration (Priority, Upload Files, Criticality, Department)</figcaption>
+      </figure>
+    </div>
+
+    <div class="feature-breakdown-grid">
+      <div class="fb-card">
+        <div class="fb-title">Multi-Tier Master Architecture</div>
+        <p class="fb-desc">Nested sidebar structuring 12 distinct master entities—including Defect Master, RCA Master, User Master, and SLA configurations.</p>
+      </div>
+
+      <div class="fb-card">
+        <div class="fb-title">Dynamic Field Engine</div>
+        <p class="fb-desc">Enables project managers to toggle form field display rules per client contract without requiring engineering code deployments.</p>
+      </div>
+
+      <div class="fb-card">
+        <div class="fb-title">Granular Role Permissions</div>
+        <p class="fb-desc">Strict authorization controls ensuring only certified administrators can edit core defect taxonomies and contractual SLA parameters.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Design Principles Section -->
+  <section class="cs-principles-section reveal">
+    <span class="principles-eyebrow">DESIGN PRINCIPLES</span>
+    <h2 class="principles-title">Principles that guided decisions</h2>
+
+    <div class="principles-list">
+      <div class="principle-row">
+        <div class="principle-num">01</div>
+        <div class="principle-body">
+          <div class="principle-heading">Triage before creation, not after</div>
+          <p class="principle-desc">Surface historical resolutions and duplicate detection in the creation viewport, cutting redundant backlog clutter at the source.</p>
+        </div>
+      </div>
+
+      <div class="principle-row">
+        <div class="principle-num">02</div>
+        <div class="principle-body">
+          <div class="principle-heading">Data density without cognitive overload</div>
+          <p class="principle-desc">Utilize clean typographic hierarchy, micro-status chips, and progressive disclosure drawers to keep 10+ columns scannable in high-volume environments.</p>
+        </div>
+      </div>
+
+      <div class="principle-row">
+        <div class="principle-num">03</div>
+        <div class="principle-body">
+          <div class="principle-heading">Decouple communication from governance metadata</div>
+          <p class="principle-desc">Maintain an uninterrupted conversational timeline for engineers while isolating SLA compliance timestamps, assignees, and target dates in a dedicated side panel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outcomes & Impact -->
+  <section id="outcomes" class="prose tight reveal">
+    <h2>Outcomes &amp; Impact</h2>
+    <div class="outcomes" style="margin-top: 24px;">
+      <div class="outcome-item">
+        <div class="outcome-num">64%</div>
+        <div class="outcome-lbl">Reduction in Duplicate Bug Submissions</div>
+      </div>
+      <div class="outcome-item">
+        <div class="outcome-num">42%</div>
+        <div class="outcome-lbl">Faster Mean Time to Initial Triage</div>
+      </div>
+      <div class="outcome-item">
+        <div class="outcome-num">99.4%</div>
+        <div class="outcome-lbl">Contract SLA Adherence Rate Visibility</div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact" class="reveal">
+    <div class="row">
+      <div>© 2026 Subith M</div>
+      <div style="display:flex;gap:24px;">
+        <a href="mailto:text2subith@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/subith-prabhakar-20b82a1b3" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="SubithCV.pdf" download="Subith_M_Resume.pdf" target="_blank">Resume</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="cursor.js"></script>
+<script>
+  // Reading progress bar & scrollspy for sticky jump bar
+  document.addEventListener('DOMContentLoaded', () => {
+    const navPills = document.querySelectorAll('.itrack-nav-pill');
+    const sections = document.querySelectorAll('section[id], div[id]');
+
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      const progressBar = document.getElementById('progress-bar');
+      if (progressBar) {
+        progressBar.style.width = scrolled + '%';
+      }
+
+      // Scrollspy
+      let currentSection = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        if (winScroll >= sectionTop) {
+          currentSection = section.getAttribute('id');
+        }
+      });
+
+      navPills.forEach(pill => {
+        pill.classList.remove('active');
+        if (pill.getAttribute('href') === `#${currentSection}`) {
+          pill.classList.add('active');
+        }
+      });
+    });
+
+    // Scroll reveal with IntersectionObserver
+    const reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+      reveals.forEach((el) => observer.observe(el));
+    } else {
+      reveals.forEach((el) => el.classList.add('is-visible'));
+    }
+  });
+</script>
+</body>
+</html>
