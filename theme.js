@@ -30,6 +30,46 @@
         }
       });
     }
+
+    // Mobile Navigation Menu Toggle
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const navLinks = document.getElementById('nav-links');
+
+    if (menuBtn && navLinks) {
+      menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = navLinks.classList.toggle('is-open');
+        menuBtn.classList.toggle('is-active', isOpen);
+        menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      // Close menu when clicking any nav link
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('is-open');
+          menuBtn.classList.remove('is-active');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      // Close menu on click outside
+      document.addEventListener('click', (e) => {
+        if (!navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
+          navLinks.classList.remove('is-open');
+          menuBtn.classList.remove('is-active');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Close menu on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navLinks.classList.contains('is-open')) {
+          navLinks.classList.remove('is-open');
+          menuBtn.classList.remove('is-active');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
   });
 
   // Listen for system theme changes if no manual preference is saved
