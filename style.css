@@ -2708,6 +2708,39 @@ footer a:hover{
   transform: translateY(-1px);
 }
 
+.resume-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--ink);
+  color: var(--paper) !important;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: var(--radius-md, 6px);
+  text-decoration: none;
+  transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+  margin-top: 24px;
+  width: fit-content;
+}
+
+.resume-cta-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.resume-cta-btn svg {
+  stroke: currentColor;
+}
+
+[data-theme="dark"] .resume-cta-btn {
+  background: var(--ink);
+  color: var(--paper) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+
 /* =========================================
    Responsive Breakpoints
    ========================================= */
