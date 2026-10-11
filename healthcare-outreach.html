@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Senior Engagement &amp; Volunteer Portals — Subith M</title>
+<meta name="description" content="Designing the digital backbone for Singapore's national senior outreach &amp; volunteer operations — a case study by Subith M, Senior UX / Product Designer.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Senior Engagement &amp; Volunteer Portals — Subith M">
+<meta property="og:description" content="Designing the digital backbone for Singapore's national senior outreach &amp; volunteer operations — a case study by Subith M, Senior UX / Product Designer.">
+<meta property="og:url" content="https://subithprabhakar.github.io/subith-portfolio/healthcare-outreach.html">
+<meta property="og:image" content="https://subithprabhakar.github.io/subith-portfolio/images/social-card.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="style.css">
+<script src="theme.js"></script>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#FAF8F3">
+</head>
+<body>
+
+<!-- Interactive Top Reading Progress Bar -->
+<div id="progress-bar"></div>
+
+<div class="wrap">
+  <nav class="nav animate-fade-up">
+    <a href="index.html" class="name">Subith M</a>
+    <div class="nav-right">
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg class="sun-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <div class="links" id="nav-links">
+        <div class="nav-accordion">
+          <a href="index.html#work" class="desktop-work-link">Work</a>
+          <button type="button" class="accordion-toggle-btn" aria-expanded="false">
+            <span>Work</span>
+            <svg class="chevron-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="nav-accordion-content">
+            <a href="energy-etrm.html" class="sublink-item">
+              <span class="sublink-title">Energy Utility ETRM</span>
+              <span class="sublink-badge">Energy Trading &amp; Risk</span>
+            </a>
+            <a href="healthcare-outreach.html" class="sublink-item">
+              <span class="sublink-title">Senior Care Services</span>
+              <span class="sublink-badge">GovTech · Elder Care</span>
+            </a>
+            <a href="government-operations.html" class="sublink-item">
+              <span class="sublink-title">Government Institution</span>
+              <span class="sublink-badge">GovTech · Operations Governance</span>
+            </a>
+            <a href="itrack.html" class="sublink-item">
+              <span class="sublink-title">iTrack</span>
+              <span class="sublink-badge">Enterprise SaaS · SLA Governance</span>
+            </a>
+            <a href="seaverse.html" class="sublink-item">
+              <span class="sublink-title">Seaverse</span>
+              <span class="sublink-badge">EdTech · Maritime LMS</span>
+            </a>
+            <a href="sun-mobility.html" class="sublink-item">
+              <span class="sublink-title">SUN Mobility</span>
+              <span class="sublink-badge">EV Battery Swapping</span>
+            </a>
+            <a href="index.html#work" class="sublink-item sublink-all">
+              <span class="sublink-title">View All Works →</span>
+            </a>
+          </div>
+        </div>
+        <a href="index.html#about" class="nav-link-item">About</a>
+        <a href="Subith_M_Resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link-item">Resume</a>
+        <a href="index.html#contact" class="nav-link-item">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sticky Back to Work Subnav -->
+  <div class="case-subnav animate-fade-up">
+    <a href="index.html" class="back-link">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+      <span>Back to work</span>
+    </a>
+  </div>
+
+  <section class="cs-hero animate-fade-up delay-1">
+    <div class="meta cs-meta">
+      <span class="cs-meta-tag">GovTech &amp; Healthcare</span>
+      <span class="dot">·</span>
+      <span>Healthcare Agency</span>
+      <span class="dot">·</span>
+      <span>2026</span>
+      <span class="dot">·</span>
+      <span>Lead Product Designer</span>
+    </div>
+    <h1>Designing the digital backbone for Singapore's national senior outreach &amp; volunteer operations</h1>
+  </section>
+
+  <!-- Hero Dual-Mockup Shot: Web Operations Dashboard + Framed Tablet Field App -->
+  <div class="hero-shot animate-fade-up delay-2" style="padding: 28px 24px;">
+    <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 24px; align-items: center;">
+      <!-- Web Operations Preview -->
+      <div style="background: #FFFFFF; border-radius: 6px; overflow: hidden; border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 12px 30px rgba(0,0,0,0.06);">
+        <div class="browser-header">
+          <div class="browser-dots">
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+          </div>
+          <span class="browser-title-mini">Volunteer Portal · Operations Dashboard</span>
+        </div>
+        <img src="images/care-web-dashboard.webp" alt="The agency Volunteer Web Operations Dashboard" style="width: 100%; display: block;">
+      </div>
+
+      <!-- Compact Framed Tablet Field App Preview -->
+      <div class="tablet-device-frame" style="max-width: 340px; margin: 0 auto; box-shadow: 0 16px 36px rgba(0,0,0,0.1);">
+        <div class="tablet-header-mini">
+          <span>Senior Engagement (Tablet)</span>
+          <span>14:24 📶</span>
+        </div>
+        <img src="images/care-engagement-start.webp" alt="Senior Engagement Tablet Assessment" style="width: 100%; display: block;" loading="lazy" decoding="async">
+      </div>
+    </div>
+    <div class="screen-caption" style="margin-top: 16px; text-align: center; justify-content: center;">
+      The dual-ecosystem: Centralized web management portal (left) and offline-first tablet field app (right)
+    </div>
+  </div>
+
+  <section class="prose tight reveal" style="padding-top:0;">
+    <h2>Context</h2>
+    <p style="margin-top:14px;">The <strong>Healthcare Agency</strong> coordinates care services across Singapore, ensuring elderly citizens receive timely medical, social, and financial assistance through the national senior outreach office. Grassroots volunteer befrienders conduct door-to-door home visits across Singapore's public housing (public housing) estates to check on vulnerable seniors, administer cognitive health assessments, and connect them with national care schemes.</p>
+    <p>I was the sole product designer across the entire digital ecosystem, architecting two complementary platforms:</p>
+    <ol style="color: var(--ink); margin-top: 12px; padding-left: 20px; line-height: 1.75;">
+      <li><strong>Senior Engagement Portal (Tablet App)</strong>: An ergonomic, offline-first digital assessment tool tailored for volunteer pairs conducting doorstep surveys.</li>
+      <li><strong>Volunteer Portal (Web Operations Platform)</strong>: A comprehensive portal for volunteer onboarding, milestone tracking, honorarium (OPA) disbursement, training compliance, and division governance.</li>
+    </ol>
+  </section>
+
+  <section class="prose tight reveal">
+    <h2>The Problem</h2>
+    <p style="margin-top:14px;">Previously, the outreach process was burdened by fragmented, paper-heavy workflows. In the field, volunteers juggled clipboards and pen-and-paper questionnaires in narrow, dim public housing corridors while trying to build rapport with elderly residents in multiple dialects. Back in the office, data transcription created multi-week backlogs, causing delays in emergency healthcare interventions. Meanwhile, volunteers had no visibility into their service hours, honorarium reimbursements, or award milestones.</p>
+  </section>
+
+  <section class="tight reveal">
+    <div class="pull">
+      <p>In community healthcare, software should never get in the way of human empathy. The tablet had to be fast enough to use while standing at a doorway, while the web portal had to make volunteers feel valued, recognized, and supported.</p>
+    </div>
+  </section>
+
+  <!-- Part 1: Senior Engagement Tablet App (Presented with Side-by-Side Splits & Compact Tablet Frames) -->
+  <section class="reveal">
+    <div style="border-top: 2px solid var(--navy); padding-top: 28px; margin-bottom: 24px;">
+      <span class="cs-meta-tag" style="background: #FBECE8; color: #E05638; font-weight: 600;">PART 1 · FIELD MOBILITY</span>
+      <h2 style="margin-top: 10px; font-size: 30px;">Senior Engagement Portal (Tablet App)</h2>
+    </div>
+
+    <!-- Feature Split 1: Dedicated Volunteer Pairing -->
+    <div class="cs-feature-split reveal">
+      <div class="split-content">
+        <span class="split-tag">COOPERATIVE WORKFLOW</span>
+        <h3>1. "Communicator ⇄ Recorder" Dynamic &amp; 1-Tap Role Swap</h3>
+        <p>Outreach visits are always conducted in pairs for safety and effectiveness. One volunteer leads the conversation in the senior's native dialect ("Communicator"), while the other logs responses ("Recorder").</p>
+        <p>I designed a persistent top app bar displaying both active volunteers with an instant 1-tap role-swap trigger, allowing volunteers to switch roles seamlessly when encountering unexpected dialect barriers.</p>
+      </div>
+      <div class="split-visual">
+        <div class="tablet-device-frame">
+          <img src="images/care-senior-selection.webp" alt="Senior Selection Screen with Volunteer Pairings and Dialect Badges" loading="lazy" decoding="async">
+        </div>
+        <div class="screen-caption">Volunteer pair header with role indicator and dialect-mapped senior cards</div>
+      </div>
+    </div>
+
+    <!-- Feature Split 2: Split-Screen Assessment (Reversed for visual rhythm) -->
+    <div class="cs-feature-split reverse reveal">
+      <div class="split-content">
+        <span class="split-tag">ERGONOMICS &amp; COGNITION</span>
+        <h3>2. Ergonomic Split-Screen Assessment with Tactile Cards</h3>
+        <p>Doorstep assessments take place standing up, often in narrow public housing corridors. I organized the clinical assessment into a 2-column tablet layout: a category progress rail on the left (Health, Psychosocial, ADLs, Follow-Up Actions) and massive, high-contrast touch cards on the right.</p>
+        <p>Large tap targets prevent mis-taps and reduce cognitive friction for volunteers across diverse age groups and digital literacy levels.</p>
+      </div>
+      <div class="split-visual">
+        <div class="tablet-device-frame">
+          <img src="images/care-assessment-questions.webp" alt="Tablet Split-Screen Assessment Interface with Large Touch Targets" loading="lazy" decoding="async">
+        </div>
+        <div class="screen-caption">Split-screen assessment — 9 categories on the left rail with cognitive recall checks (B2/B3)</div>
+      </div>
+    </div>
+
+    <!-- Paired Side-by-Side Tablet Comparisons for Consent and Dashboard Status -->
+    <div style="margin-top: 36px;">
+      <h3 style="margin-bottom: 8px;">3. Conversational Consent &amp; Actionable Session Dashboard</h3>
+      <p class="prose muted" style="margin-bottom: 24px;">Adhering to Singapore PDPA privacy laws with embedded conversational scripts, alongside real-time unreachability drop-off tracking (hospitalized, unwell, etc.) for care coordinator triage.</p>
+
+      <div class="screens-grid-tablet reveal-group">
+        <figure>
+          <div class="tablet-device-frame">
+            <img src="images/care-consent-location.webp" alt="Statutory Consent Script and Location Selector" loading="lazy" decoding="async">
+          </div>
+          <figcaption class="screen-caption">Conversational consent disclosure script and one-tap outreach location grid</figcaption>
+        </figure>
+
+        <figure>
+          <div class="tablet-device-frame">
+            <img src="images/care-dashboard-status.webp" alt="Engagement Status Dashboard showing Successful, Unsuccessful, and Pending Filters" loading="lazy" decoding="async">
+          </div>
+          <figcaption class="screen-caption">Dashboard status filter pills — surfacing unreachability reasons in real time</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Part 2: Volunteer Operations Web Platform (Landscape screens presented cleanly) -->
+  <section class="reveal">
+    <div style="border-top: 2px solid var(--navy); padding-top: 28px; margin-bottom: 24px;">
+      <span class="cs-meta-tag" style="background: var(--navy-tint); color: var(--navy); font-weight: 600;">PART 2 · WEB MANAGEMENT</span>
+      <h2 style="margin-top: 10px; font-size: 30px;">Volunteer Operations &amp; Recognition Portal (Web)</h2>
+    </div>
+
+    <div class="decision reveal">
+      <h3>4. Operations Dashboard &amp; Recognition Hub</h3>
+      <p>To keep grassroots volunteers engaged and motivated, the home dashboard surfaces high-level service milestones (Years of Service, Total Hours Served, Seniors Helped, and Total Honorarium Disbursed), active workshop registrations, and Senior Ambassador merit awards (Gold, Silver, Bronze).</p>
+    </div>
+    <div class="screen-block reveal">
+      <img src="images/care-web-dashboard.webp" alt="Volunteer Operations Dashboard with Hours Served, Awards, and Announcements" loading="lazy" decoding="async">
+      <div class="screen-caption">Volunteer operations dashboard — tracking service hours, milestone awards, and mandatory training compliance</div>
+    </div>
+
+    <div class="decision reveal">
+      <h3>5. High-Density OPA Honorarium &amp; Engagement Audit Ledger</h3>
+      <p>Volunteers receive an Out-of-Pocket Allowance (OPA) for each completed engagement. I designed a dense, filterable ledger where volunteers and finance coordinators can audit visit records across regional divisions (Region A, Region B, Region C, Region D, etc.), visit roles (Communicator, Recorder, Observer), and real-time payment processing statuses.</p>
+    </div>
+    <div class="screen-block reveal">
+      <img src="images/care-web-engagements-opa.webp" alt="Engagements and OPA Honorarium Audit Ledger" loading="lazy" decoding="async">
+      <div class="screen-caption">Engagements &amp; OPA audit table — filterable by date range, visit modality, division, and payment reconciliation status</div>
+    </div>
+
+    <div class="decision reveal">
+      <h3>6. Structured Volunteer Onboarding &amp; Profile Governance</h3>
+      <p>Volunteers are matched to seniors based on language capabilities and geographical proximity. I designed a multi-step registration wizard that captures citizenship, dialect proficiency, regional divisions, and training history, ensuring optimal volunteer placement across Singapore.</p>
+    </div>
+    <div class="screen-block reveal">
+      <img src="images/care-web-profile.webp" alt="Volunteer Profile and Division Mapping Form" loading="lazy" decoding="async">
+      <div class="screen-caption">Volunteer profile &amp; divisional mapping — capturing language proficiency and geographic allocation</div>
+    </div>
+  </section>
+
+  <!-- Outcomes Section -->
+  <section class="reveal">
+    <h2 style="margin-bottom:4px;">Outcome &amp; Impact</h2>
+    <div class="outcomes reveal-group" style="margin-top:24px;">
+      <div class="outcome-stat">
+        <div class="num">100%</div>
+        <div class="label">Digital transition from paper packets across all outreach divisions</div>
+      </div>
+      <div class="outcome-stat">
+        <div class="num">0</div>
+        <div class="label">Data lost due to corridor network drops with offline-first sync</div>
+      </div>
+      <div class="outcome-stat">
+        <div class="num">&lt; 3 mins</div>
+        <div class="label">Post-visit data processing time, down from 3+ days</div>
+      </div>
+    </div>
+    <p class="outcome-note">Based on nationwide rollout and volunteer feedback across Singapore community clusters.</p>
+  </section>
+
+  <!-- Bottom Case Study Navigation -->
+  <div class="cs-nav-bottom reveal">
+    <a href="index.html#work">← Back to all selected work</a>
+    <a href="government-operations.html">View Next: Government Institution Travel Portal →</a>
+  </div>
+
+  <footer id="contact" class="reveal">
+    <div class="row">
+      <div>© 2026 Subith M</div>
+      <div style="display:flex;gap:24px;">
+        <a href="mailto:text2subith@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/subith-m-20b82a1b3" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="Subith_M_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  // Top Reading Progress Bar
+  window.addEventListener('scroll', () => {
+    const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    const progressBar = document.getElementById('progress-bar');
+    if (progressBar) {
+      progressBar.style.width = scrolled + '%';
+    }
+  });
+
+  // Scroll reveal with IntersectionObserver
+  document.addEventListener('DOMContentLoaded', () => {
+    const reveals = document.querySelectorAll('.reveal, .reveal-group');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+      reveals.forEach((el) => observer.observe(el));
+    } else {
+      reveals.forEach((el) => el.classList.add('is-visible'));
+    }
+  });
+</script>
+
+<script src="cursor.js"></script>
+</body>
+</html>
