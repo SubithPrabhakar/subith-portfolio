@@ -3556,4 +3556,4 @@ footer a:hover{
 .ytl-card-zoom-btn{min-width:36px;min-height:36px}
 .theme-toggle-btn{min-width:40px;min-height:40px}
 .desktop-work-link,.nav-link-item,.back-link,.cs-nav-bottom a,footer .row a{display:inline-flex;align-items:center;min-height:36px}
-@media (max-width:960px){.hero-content{order:1}.hero-visual{order:2}}
+@media (max-width:960px){.hero-visual{order:1}.hero-content{order:2}}
