@@ -2748,7 +2748,7 @@ footer a:hover{
 @media (max-width: 960px){
   .hero-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 32px;
   }
   
   .hero-visual {
@@ -2757,7 +2757,7 @@ footer a:hover{
   }
 
   .avatar-img {
-    width: 220px;
+    width: 180px;
   }
   
   .hero-main-title {
@@ -2844,6 +2844,14 @@ footer a:hover{
     padding: 0 20px;
   }
   
+  .avatar-img {
+    width: 150px;
+  }
+
+  .hero-grid {
+    gap: 20px;
+  }
+
   .hero-main-title {
     font-size: 42px;
   }
